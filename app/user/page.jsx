@@ -29,7 +29,9 @@ export default function userPage() {
             link="/src/pages/build-profile.html"
           />
 
-          <div class="collapse collapse-arrow bg-base-200 rounded-none">
+          
+        </div>
+        <div class="collapse collapse-arrow bg-base-200 rounded-none">
             <collapsBoxTitle collapsBoxTitle="Your Profiles" />
             <profileCards
               profileTitle="Profile 1"
@@ -38,7 +40,6 @@ export default function userPage() {
               profileLink="/src/pages/build-profile.html"
             />
           </div>
-        </div>
       </div>
 
       <div className="basis-2/12 p-4 flex-grow-0 flex-shrink-0">
