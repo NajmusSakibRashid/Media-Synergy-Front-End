@@ -30,6 +30,7 @@ export default function userPage() {
           />
         </div>
       </div>
+      
       <div className='basis-2/12 p-4 flex-grow-0 flex-shrink-0'>
         <UpComingContents/>
       </div>
