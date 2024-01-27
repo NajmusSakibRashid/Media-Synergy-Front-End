@@ -8,7 +8,7 @@ export default function ProfileCards({
   profileLink,
 }) {
   return (
-    <div class="card w-full bg-base-100 shadow-xl h-full">
+    <div class="card w-full bg-base-100 shadow-xl h-full btn-ghost">
       <figure className="px-10 pt-10">
         <img src={profileImg} />
       </figure>
