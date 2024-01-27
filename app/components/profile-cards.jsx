@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 
-export default function profileCards({
+export default function ProfileCards({
   profileTitle,
   profileImg,
   profileDescription,
@@ -17,7 +18,9 @@ export default function profileCards({
         <div className="card-actions">
           <button
             className="btn btn-primary"
-            onClick={() => (window.location.href = profileLink)}
+            onClick={() => {
+              window.location.href = profileLink
+            }}
           >
             Visit Profile
           </button>
