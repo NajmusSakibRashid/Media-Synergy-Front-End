@@ -8,9 +8,3 @@ export default function Home() {
     </>
   );
 }
-
-
-/*
-suspendisse@yahoo.net
-NZI24JQA4PF
-*/
