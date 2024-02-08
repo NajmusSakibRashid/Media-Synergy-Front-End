@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ProfileCards({children}) {
   return (
-    <div className="card w-full bg-base-100 shadow-xl h-full btn-ghost">
+    <div class="card w-full bg-base-100 shadow-xl h-full btn-ghost">
       <figure className="px-10 pt-10">
         <img src={children.logo} />
       </figure>

@@ -44,11 +44,11 @@ export default function userPage() {
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 rounded-none">
-          <input type="radio" name="my-accordion-2" checked="checked"/>
+          <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
             Your Contents
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content grid grid-cols-3 gap-4">
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
               <CardButtonContentContainer />
             </ul>

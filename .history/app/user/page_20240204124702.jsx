@@ -7,7 +7,6 @@ import CollapsBoxTitle from "@/app/components/collaps-box-title";
 import CardButtonContent from "@/app/components/card-button-content";
 import CardButtonCommunity from '@/app/components/card-button-community'
 import DashBoardStats from '@/app/components/dashboard-stats'
-import CardButtonContentContainer from "@/app/components/card-button-content-container";
 
 export default function userPage() {
   return (
@@ -17,7 +16,7 @@ export default function userPage() {
         <LeftInfo />
       </div>
       <div className="basis-8/12 p-4 flex-grow-0 flex-shrink-0">
-        <div className="p-4 grid grid-cols-3 gap-4">
+      <div className="p-4 grid grid-cols-3 gap-4">
           <CardButton
             title="Build Profile"
             img="https://static.vecteezy.com/system/resources/previews/010/336/740/original/construction-icon-isolated-on-transparent-background-png.png"
@@ -34,31 +33,12 @@ export default function userPage() {
             link="/src/pages/build-profile.html"
           />
         </div>
-        <div className="collapse collapse-arrow bg-base-200 rounded-none">
-          <input type="radio" name="my-accordion-2" checked="checked" />
-          <div className="collapse-title text-xl font-medium">
-            Your Profiles
-          </div>
-          <div className="collapse-content grid grid-cols-3 gap-4">
-            <ProfileCardContainer />
-          </div>
-        </div>
-        <div className="collapse collapse-arrow bg-base-200 rounded-none">
-          <input type="radio" name="my-accordion-2" checked="checked"/>
-          <div className="collapse-title text-xl font-medium">
-            Your Contents
-          </div>
-          <div className="collapse-content">
-            <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-              <CardButtonContentContainer />
-            </ul>
-          </div>
-        </div>
+        <ProfileCardContainer />
       </div>
       <div className='basis-2/12 p-4 flex-grow-0 flex-shrink-0'>
-        <UpComingContents />
-        <DashBoardStats />
-        <DashBoardStats />
+        <UpComingContents/>
+        <DashBoardStats/>
+        <DashBoardStats/>
       </div>
     </div>
   );

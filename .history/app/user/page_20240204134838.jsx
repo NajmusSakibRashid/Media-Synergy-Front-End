@@ -48,7 +48,7 @@ export default function userPage() {
           <div className="collapse-title text-xl font-medium">
             Your Contents
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content grid grid-cols-3 gap-4">
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
               <CardButtonContentContainer />
             </ul>

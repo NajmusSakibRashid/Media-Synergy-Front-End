@@ -1,20 +1,25 @@
 "use client";
 import React from "react";
 
-export default function ProfileCards({children}) {
+export default function ProfileCards({
+  profileTitle,
+  profileImg,
+  profileDescription,
+  profileLink,
+}) {
   return (
-    <div className="card w-full bg-base-100 shadow-xl h-full btn-ghost">
+    <div class="card w-full bg-base-100 shadow-xl h-full btn-ghost">
       <figure className="px-10 pt-10">
-        <img src={children.logo} />
+        <img src={profileImg} />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{children.name}</h2>
-        <p>{children.description.aboutUs.slice(0,100)+'...'}</p>
+        <h2 className="card-title">{profileTitle}</h2>
+        <p>{profileDescription}</p>
         <div className="card-actions">
           <button
             className="btn btn-primary"
             onClick={() => {
-              window.location.href = '/'
+              window.location.href = profileLink
             }}
           >
             Visit Profile
