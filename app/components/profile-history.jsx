@@ -5,7 +5,7 @@ import HistoryTimeline from "@/app/components/history-timeline";
 export default function ProfileHistory({ editHistoryLink }) {
   const items = [{}];
   return (
-    <div className="card p-2 shadow-xl">
+    <div className="card p-2 shadow-xl hover:bg-gray-200">
       <div className="card-title flex justify-between">
         History
         <div

@@ -10,7 +10,7 @@ export default function ProfileBreifCard({
   publishProfileLink,
 }) {
   return (
-    <div className="card card-bordered p-2 shadow-xl items-center bg-base-200">
+    <div className="card card-bordered p-2 shadow-xl items-center bg-base-200 hover:bg-gray-200">
       <div className="avatar relative overflow-visible">
         <div className="w-24 rounded-full">
           <img src={img} alt="" />

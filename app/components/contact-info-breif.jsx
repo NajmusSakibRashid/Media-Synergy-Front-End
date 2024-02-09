@@ -5,7 +5,7 @@ import React from "react";
 export default function ContactInfoBreif({ editContactInfo }) {
   const items = [{}];
   return (
-    <div className="card p-2 shadow-xl">
+    <div className="card p-2 shadow-xl hover:bg-gray-200">
       <div className="card-title flex justify-between">
         Contact Informations
         <button
