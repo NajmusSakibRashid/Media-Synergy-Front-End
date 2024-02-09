@@ -2,32 +2,37 @@ import React from "react";
 import User from "@/app/components/user";
 import ContentImage from "../components/contents/content-image";
 import ProfileCardContent from "../components/contents/profile-cards-content";
+import ContentTime from "../components/contents/content-time";
+import ContentTextBox from "../components/contents/content-text-box";
+import ContentList from "../components/contents/content-list";
 
 export default function profilePage() {
   return (
     <div>
-      <div class="flex flex-col mt-16">
-        <div class="mid w-8/12 self-center pt-4">
-          <div class="card card-bordered bg-base-200 w-full shadow-xl p-4 gap-4">
-            <div class="card-title text-4xl border-solid border-b-2 w-full">
+      <div className="flex flex-col mt-16">
+        <div className="mid w-8/12 self-center pt-4">
+          <div className="card card-bordered bg-base-200 w-full shadow-xl p-4 gap-4">
+            <div className="card-title text-4xl border-solid border-b-2 w-full">
               Content Details
             </div>
-            <div class="flex">
-              <div class="basis-1/2 flex flex-col justify-around">
-                <div class="relative">
-                  <button class="btn btn-neutral min-h-0 h-6 w-16 absolute bottom-[10%] right-[10%]">
+            <div className="flex">
+              <div className="basis-1/2 flex flex-col justify-around">
+                <div className="relative">
+                  <button className="btn btn-neutral min-h-0 h-6 w-16 absolute bottom-[10%] right-[10%]">
                     Edit Content
                   </button>
                   <img
                     src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                    class="rounded-full"
+                    className="rounded-full"
                   />
                 </div>
-                <div class="card-title border-b-2 justify-between">
+                <div className="card-title border-b-2 justify-between">
                   Profiles Containing This Content
-                  <button class="btn btn-neutral min-h-0 h-6 w-16">Edit</button>
+                  <button className="btn btn-neutral min-h-0 h-6 w-16">
+                    Edit
+                  </button>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   <ProfileCardContent
                     title="Profile 1"
                     img="https://png.pngtree.com/png-vector/20220309/ourlarge/pngtree-a-hardware-store-clip-art-store-illustration-vector-png-image_12545940.png"
@@ -49,94 +54,75 @@ export default function profilePage() {
                   />
                 </div>
               </div>
-              <div class="card-body basis-1/2 flex flex-col justify-around">
-                <div class="flex justify-between">
-                  <h2 class="card-title">Lorem Ipsum</h2>
-                  <button class="btn btn-neutral min-h-0 h-6 w-16">Edit</button>
+              <div className="card-body basis-1/2 flex flex-col justify-around">
+                <ContentTextBox
+                  text="Content Title"
+                  buttonName="Edit"
+                  description=""
+                />
+
+                <ContentTime days="15" hours="10" min="24" sec="46" />
+
+                <ContentTextBox
+                  text="Description"
+                  buttonName="Edit"
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam"
+                />
+
+                <div className="flex justify-between">
+                  <h2 className="card-title">Products and Consumer</h2>
+                  <button className="btn btn-neutral min-h-0 h-6 w-16">
+                    Edit
+                  </button>
                 </div>
-                <div>
-                  <h2 class="card-title">Time after posted:</h2>
-                  <div class="flex gap-5">
-                    <div>
-                      <span class="countdown font-mono text-4xl">
-                        {/* <span style="--value:15;"></span> */}
-                      </span>
-                      days
-                    </div>
-                    <div>
-                      <span class="countdown font-mono text-4xl">
-                        {/* <span style="--value:10;"></span> */}
-                      </span>
-                      hours
-                    </div>
-                    <div>
-                      <span class="countdown font-mono text-4xl">
-                        {/* <span style="--value:24;"></span> */}
-                      </span>
-                      min
-                    </div>
-                    <div>
-                      <span class="countdown font-mono text-4xl">
-                        {/* <span style="--value:46;"></span> */}
-                      </span>
-                      sec
-                    </div>
+                <div className="flex w-full justify-between">
+                  <ContentList
+                    listName="Products"
+                    lists={["Product 1", "Product 2", "Product 3"]}
+                  />
+                  <ContentList
+                    listName="Consumers"
+                    lists={["Consumer 1", "Consumer 2", "Consumer 3"]}
+                  />
+                  
+                </div>
+                <div className="flex justify-between">
+                  <h2 className="card-title">Key Words</h2>
+                  <button className="btn btn-neutral min-h-0 h-6 w-16">
+                    Edit
+                  </button>
+                </div>
+                <div className="flex gap-5">
+                  <div className="badge badge-outline badge-primary">
+                    Discount
                   </div>
-                </div>
-                <div class="flex justify-between">
-                  <h2 class="card-title">Description</h2>
-                  <button class="btn btn-neutral min-h-0 h-6 w-16">Edit</button>
-                </div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam
-                <div class="flex justify-between">
-                  <h2 class="card-title">Products and Consumer</h2>
-                  <button class="btn btn-neutral min-h-0 h-6 w-16">Edit</button>
-                </div>
-                <div class="flex w-full justify-between">
-                  {/* <ul style="list-style-image:url('../img/checkmark.png')" class="list-inside p-4">
-                    <div class="card-title">Products:</div>
-                    <li>Product 1</li>
-                    <li>Product 2</li>
-                    <li>Product 3</li>
-                  </ul> */}
-                  {/* <ul style="list-style-image:url('../img/checkmark.png')" class="list-inside p-4">
-                    <div class="card-title">Consumers:</div>
-                    <li>Consumer 1</li>
-                    <li>Consumer 2</li>
-                    <li>Consumer 3</li>
-                  </ul> */}
-                </div>
-                <div class="flex justify-between">
-                  <h2 class="card-title">Key Words</h2>
-                  <button class="btn btn-neutral min-h-0 h-6 w-16">Edit</button>
-                </div>
-                <div class="flex gap-5">
-                  <div class="badge badge-outline badge-primary">Discount</div>
-                  <div class="badge badge-outline badge-primary">Juta</div>
-                  <div class="badge badge-outline badge-primary">Bazar</div>
-                  <div class="badge badge-outline badge-primary">Shosta</div>
+                  <div className="badge badge-outline badge-primary">Juta</div>
+                  <div className="badge badge-outline badge-primary">Bazar</div>
+                  <div className="badge badge-outline badge-primary">
+                    Shosta
+                  </div>
                 </div>
               </div>
             </div>
             <button
-              class="btn btn-accent w-32 self-center"
+              className="btn btn-accent w-32 self-center"
               onclick="window.location.href='/src/pages/scheduling-dashboard.html'"
             >
               Schedule
             </button>
-            <div class="card-title text-4xl border-solid border-b-2 w-full">
+            <div className="card-title text-4xl border-solid border-b-2 w-full">
               Analytics
             </div>
-            <div class="stats rounded-none border-solid">
-              <div class="stat">
-                <div class="stat-figure text-primary">
+            <div className="stats rounded-none border-solid">
+              <div className="stat">
+                <div className="stat-figure text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    class="inline-block w-8 h-8 stroke-current"
+                    className="inline-block w-8 h-8 stroke-current"
                   >
                     <path
                       stroke-linecap="round"
@@ -146,17 +132,17 @@ export default function profilePage() {
                     ></path>
                   </svg>
                 </div>
-                <div class="stat-title">Total Likes</div>
-                <div class="stat-value text-primary">25.6K</div>
-                <div class="stat-desc">21% more than last month</div>
+                <div className="stat-title">Total Likes</div>
+                <div className="stat-value text-primary">25.6K</div>
+                <div className="stat-desc">21% more than last month</div>
               </div>
-              <div class="stat">
-                <div class="stat-figure text-secondary">
+              <div className="stat">
+                <div className="stat-figure text-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    class="inline-block w-8 h-8 stroke-current"
+                    className="inline-block w-8 h-8 stroke-current"
                   >
                     <path
                       stroke-linecap="round"
@@ -166,49 +152,51 @@ export default function profilePage() {
                     ></path>
                   </svg>
                 </div>
-                <div class="stat-title">Post Views</div>
-                <div class="stat-value text-secondary">2.6M</div>
-                <div class="stat-desc">21% more than last month</div>
+                <div className="stat-title">Post Views</div>
+                <div className="stat-value text-secondary">2.6M</div>
+                <div className="stat-desc">21% more than last month</div>
               </div>
 
-              <div class="stat">
-                <div class="stat-figure text-secondary">
-                  <div class="avatar online">
-                    <div class="w-16 rounded-full">
+              <div className="stat">
+                <div className="stat-figure text-secondary">
+                  <div className="avatar online">
+                    <div className="w-16 rounded-full">
                       <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                   </div>
                 </div>
-                <div class="stat-value">86%</div>
-                <div class="stat-title">Liked and Followed</div>
-                <div class="stat-desc text-secondary">31 tasks remaining</div>
+                <div className="stat-value">86%</div>
+                <div className="stat-title">Liked and Followed</div>
+                <div className="stat-desc text-secondary">
+                  31 tasks remaining
+                </div>
               </div>
             </div>
-            <div class="card-title self-center">Reach</div>
+            <div className="card-title self-center">Reach</div>
             <canvas id="lineChart"></canvas>
-            {/* <div class="self-center">
-              <p class="text-xl">
+            {/* <div className="self-center">
+              <p className="text-xl">
                 <b>Search Appearance by Keywords</b>
               </p>
               <br />
               <p>
                 <i>
-                  <h6 class="text-blue-700">#discount</h6>
+                  <h6 className="text-blue-700">#discount</h6>
                 </i>
               </p>
               <progress
-                class="progress progress-success w-96"
+                className="progress progress-success w-96"
                 value="95"
                 max="100"
               ></progress>
               <br />
               <p>
                 <i>
-                  <h6 class="text-blue-700">#juta</h6>
+                  <h6 className="text-blue-700">#juta</h6>
                 </i>
               </p>
               <progress
-                class="progress progress-error w-96"
+                className="progress progress-error w-96"
                 value="15"
                 max="100"
               ></progress>
@@ -222,11 +210,11 @@ export default function profilePage() {
               <br />
               <p>
                 <i>
-                  <h6 class="text-blue-700">#shosta</h6>
+                  <h6 className="text-blue-700">#shosta</h6>
                 </i>
               </p>
               <progress
-                class="progress progress-success w-96"
+                className="progress progress-success w-96"
                 value="75"
                 max="100"
               ></progress>
