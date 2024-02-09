@@ -6,7 +6,7 @@ import CardButton from "@/app/components/card-button";
 import ProfileCards from "@/app/components/profile-cards";
 import CollapsBoxTitle from "@/app/components/collaps-box-title";
 import CardButtonContent from "@/app/components/card-button-content";
-import CardButtonCommunity from '@/app/components/card-button-community'
+import CardButtonCommunity from "@/app/components/card-button-community";
 
 export default function userPage() {
   return (
@@ -35,6 +35,7 @@ export default function userPage() {
         </div>
 
         <div className="collapse collapse-arrow bg-base-200 rounded-none">
+          {/* <input type="radio" name="my-accordion-2" checked="checked" /> */}
           <CollapsBoxTitle title="Your Profiles" />
           <div className="grid grid-cols-3 gap-4">
             <ProfileCards
@@ -64,74 +65,76 @@ export default function userPage() {
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 rounded-none">
+          {/* <input type="radio" name="my-accordion-2" /> */}
           <CollapsBoxTitle title="Your Community" />
           <div className="grid grid-cols-3 gap-4">
-          <CardButtonCommunity
-            title='Restaurant Owners of Badda'
-            img='https://media.istockphoto.com/id/1357830750/vector/geometric-illustration-of-multi-coloured-human-figures.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=2uvkAa8B9pyBcMbMUoE6zQVXPrNAz8Tdysdfq8G3oKM='
-            link='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            avatar_img='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-            btn_name='Visit Community'
-          />
-          <CardButtonCommunity
-            title='All Mirpur Hardware Suppliers'
-            img='https://img.freepik.com/premium-vector/illustration-people-different-races-defense-human-rights_724548-707.jpg'
-            link='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            avatar_img='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-            btn_name='Visit Community'
-          />
-          <CardButtonCommunity
-            title='Hotel Owners BD'
-            img='https://thumbs.dreamstime.com/b/illustration-people-consumer-needs-wants-27368663.jpg'
-            link='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            avatar_img='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-            btn_name='Visit Community'
-          />
-          <CardButtonCommunity
-            title='See more'
-            img='https://static.vecteezy.com/system/resources/previews/017/375/847/non_2x/plus-sign-icon-white-neumorphism-soft-ui-design-for-web-design-application-ui-and-more-button-vector.jpg'
-            link='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            avatar_img='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-            description='Click here to watch more items in this category'
-            btn_name='Visit Community'
-          />
+            <CardButtonCommunity
+              title="Restaurant Owners of Badda"
+              img="https://media.istockphoto.com/id/1357830750/vector/geometric-illustration-of-multi-coloured-human-figures.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=2uvkAa8B9pyBcMbMUoE6zQVXPrNAz8Tdysdfq8G3oKM="
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              avatar_img="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+              btn_name="Visit Community"
+            />
+            <CardButtonCommunity
+              title="All Mirpur Hardware Suppliers"
+              img="https://img.freepik.com/premium-vector/illustration-people-different-races-defense-human-rights_724548-707.jpg"
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              avatar_img="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+              btn_name="Visit Community"
+            />
+            <CardButtonCommunity
+              title="Hotel Owners BD"
+              img="https://thumbs.dreamstime.com/b/illustration-people-consumer-needs-wants-27368663.jpg"
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              avatar_img="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+              btn_name="Visit Community"
+            />
+            <CardButtonCommunity
+              title="See more"
+              img="https://static.vecteezy.com/system/resources/previews/017/375/847/non_2x/plus-sign-icon-white-neumorphism-soft-ui-design-for-web-design-application-ui-and-more-button-vector.jpg"
+              link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              avatar_img="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              description="Click here to watch more items in this category"
+              btn_name="Visit Community"
+            />
           </div>
         </div>
         <div className="collapse collapse-arrow bg-base-200 rounded-none">
+          {/* <input type="radio" name="my-accordion-2" /> */}
           <CollapsBoxTitle title="Your Contents" />
           <div className="grid grid-cols-3 gap-4">
             <CardButtonContent
-              title='Content 1'
-              img='https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png'
-              description='Life is meaningless without a good burger'
-              btn_name='Visit Content'
-              date='Dec,2024'
+              title="Content 1"
+              img="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+              description="Life is meaningless without a good burger"
+              btn_name="Visit Content"
+              date="Dec,2024"
             />
             <CardButtonContent
-              title='Content 2'
-              img='https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg'
-              description='Life is meaningless without a good burger'
-              btn_name='Visit Content'
-              date='Oct,2024'
+              title="Content 2"
+              img="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+              description="Life is meaningless without a good burger"
+              btn_name="Visit Content"
+              date="Oct,2024"
             />
             <CardButtonContent
-              title='Content 3'
-              img='https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg'
-              description='Life is meaningless without a good burger'
-              btn_name='Visit Content'
-              date='Mar,2024'
+              title="Content 3"
+              img="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+              description="Life is meaningless without a good burger"
+              btn_name="Visit Content"
+              date="Mar,2024"
             />
             <CardButtonContent
-              title='Content 4'
-              img='https://static.vecteezy.com/system/resources/previews/017/375/847/non_2x/plus-sign-icon-white-neumorphism-soft-ui-design-for-web-design-application-ui-and-more-button-vector.jpg'
-              description='Life is meaningless without a good burger'
-              btn_name='See more'
-              date=''
+              title="Content 4"
+              img="https://static.vecteezy.com/system/resources/previews/017/375/847/non_2x/plus-sign-icon-white-neumorphism-soft-ui-design-for-web-design-application-ui-and-more-button-vector.jpg"
+              description="Life is meaningless without a good burger"
+              btn_name="See more"
+              date=""
             />
-            </div>
+          </div>
         </div>
       </div>
 
