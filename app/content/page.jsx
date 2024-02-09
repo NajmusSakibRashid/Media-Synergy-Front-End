@@ -1,10 +1,25 @@
+"use client";
 import React from "react";
+
 import User from "@/app/components/user";
 import ContentImage from "../components/contents/content-image";
 import ProfileCardContent from "../components/contents/profile-cards-content";
 import ContentTime from "../components/contents/content-time";
 import ContentTextBox from "../components/contents/content-text-box";
 import ContentList from "../components/contents/content-list";
+import ContentTags from "../components/contents/content-tags";
+import ContentScheduleButton from "../components/contents/content-schedule-button";
+import ContentSectionHeader from "../components/contents/content-section-header";
+import BarChart from "../components/contents/analytics-bar-chart";
+
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+import { useState } from "react";
+// import { Data } from "./Data";
+// import PieChart from "../components/PieChart";
+// import "./styles.css";
+
+Chart.register(CategoryScale);
 
 export default function profilePage() {
   return (
@@ -12,9 +27,8 @@ export default function profilePage() {
       <div className="flex flex-col mt-16">
         <div className="mid w-8/12 self-center pt-4">
           <div className="card card-bordered bg-base-200 w-full shadow-xl p-4 gap-4">
-            <div className="card-title text-4xl border-solid border-b-2 w-full">
-              Content Details
-            </div>
+            <ContentSectionHeader header="Content Details" />
+
             <div className="flex">
               <div className="basis-1/2 flex flex-col justify-around">
                 <div className="relative">
@@ -86,35 +100,63 @@ export default function profilePage() {
                     listName="Consumers"
                     lists={["Consumer 1", "Consumer 2", "Consumer 3"]}
                   />
-                  
                 </div>
-                <div className="flex justify-between">
-                  <h2 className="card-title">Key Words</h2>
-                  <button className="btn btn-neutral min-h-0 h-6 w-16">
-                    Edit
-                  </button>
-                </div>
-                <div className="flex gap-5">
-                  <div className="badge badge-outline badge-primary">
-                    Discount
-                  </div>
-                  <div className="badge badge-outline badge-primary">Juta</div>
-                  <div className="badge badge-outline badge-primary">Bazar</div>
-                  <div className="badge badge-outline badge-primary">
-                    Shosta
-                  </div>
-                </div>
+
+                <ContentTextBox
+                  text="Hashtags"
+                  buttonName="Edit"
+                  description=""
+                />
+
+                {/* <ContentTags tags={["tag1", "tag2", "tag3"]} /> */}
               </div>
             </div>
-            <button
-              className="btn btn-accent w-32 self-center"
-              onclick="window.location.href='/src/pages/scheduling-dashboard.html'"
-            >
-              Schedule
-            </button>
-            <div className="card-title text-4xl border-solid border-b-2 w-full">
-              Analytics
+
+            <div className="self-center">
+              <ContentScheduleButton />
             </div>
+            <ContentSectionHeader header="Content Analytics" />
+
+            <BarChart
+              chartData={[
+                {
+                  title: "Daily Reach",
+                  labels: ["A", "B", "C"],
+                  data: [10, 20, 30],
+                },
+                {
+                  title: "Weekly Reach",
+                  labels: ["X", "Y", "Z"],
+                  data: [15, 25, 35],
+                },
+                {
+                  title: "Monthly Reach",
+                  labels: ["X", "Y", "Z"],
+                  data: [15, 25, 100],
+                },
+              ]}
+            />
+
+            {/* <BarChart
+            chartData={[
+              {
+                title: "Chart 1",
+                labels: ["A", "B", "C", "D", "E"],
+                data: [10, 20, 30, 40, 50],
+              },
+            ]}
+          />
+
+      {/* Second instance of BarChart */}
+            {/* <BarChart
+        chartData={[
+          {
+            title: "Chart 2",
+            labels: ["X", "Y", "Z"],
+            data: [15, 25, 35],
+          },
+        ]}
+      />  */}
             <div className="stats rounded-none border-solid">
               <div className="stat">
                 <div className="stat-figure text-primary">
