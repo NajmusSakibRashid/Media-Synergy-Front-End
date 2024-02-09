@@ -30,8 +30,8 @@ export default function userPage() {
             link="/src/pages/build-profile.html"
           />
         </div>
-        <Acordion/>
       </div>
+      <Acordion
       <div className='basis-2/12 p-4 flex-grow-0 flex-shrink-0'>
         <UpComingContents />
         <DashBoardStats />

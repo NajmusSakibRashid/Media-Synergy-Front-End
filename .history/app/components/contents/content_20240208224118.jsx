@@ -1,9 +1,6 @@
 'use client'
 
-import {useState} from 'react'
-
 export default function content({children}) {
-  const [show, setShow] = useState(true);
   const publish=()=>{
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/publish`;
     const token = localStorage.getItem('token');
@@ -31,33 +28,9 @@ export default function content({children}) {
     fetchData();
   }
   const deletef=()=>{
-    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${children._id}`;
-    const token = localStorage.getItem('token');
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-    const requestOptions = {
-      method: 'DELETE',
-      headers: myHeaders,
-    };
-    const fetchData = async () => {
-      const promise = await fetch(url, requestOptions);
-      if (promise.status == 200) {
-        const response = await promise.json();
-        setShow(false);
-        console.log(response);
-      }
-      else {
-        alert(promise.statusText);
-      }
-    }
-    fetchData();
-  }
-  if(!show){
-    return null;
   }
   return (
     <div className="card w-full h-96 bg-base-300">
-      {children.media.length>0&&<img src={children.media} className="p-4 h-40 w-full object-cover" />}
       <div className="card-title p-4">
         {children.title}
       </div>

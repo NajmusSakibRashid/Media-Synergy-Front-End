@@ -17,7 +17,7 @@ export default function cardContentContainer() {
       const promise = await fetch(url, requestOptions);
       if (promise.status == 200) {
         const response = await promise.json();
-        setContents(response.slice(0,5));
+        setContents(response);
         console.log(response);
       }
       else {

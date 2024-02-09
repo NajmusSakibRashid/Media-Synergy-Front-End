@@ -43,7 +43,6 @@ export default function content({children}) {
       const promise = await fetch(url, requestOptions);
       if (promise.status == 200) {
         const response = await promise.json();
-        setShow(false);
         console.log(response);
       }
       else {
@@ -52,12 +51,8 @@ export default function content({children}) {
     }
     fetchData();
   }
-  if(!show){
-    return null;
-  }
   return (
     <div className="card w-full h-96 bg-base-300">
-      {children.media.length>0&&<img src={children.media} className="p-4 h-40 w-full object-cover" />}
       <div className="card-title p-4">
         {children.title}
       </div>

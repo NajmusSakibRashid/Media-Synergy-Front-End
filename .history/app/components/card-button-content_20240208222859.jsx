@@ -11,7 +11,7 @@ export default function CardButtonContent({ children,id }) {
                 <div className="text-lg font-black">{children.title}</div>
                 {children.description}
                 <img src={children.media.length?children.media[0]:"https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"} alt="" className="w-full" />
-                <button className="btn btn-primary mt-4">Details</button>
+                <button onClick={()=>{window.location.href='/contents'}} className="btn btn-primary mt-4">Details</button>
             </div>
             <hr />
         </li>

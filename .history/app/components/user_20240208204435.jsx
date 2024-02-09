@@ -31,7 +31,7 @@ export default function user() {
   }, [])
   return (
     <div className="card w-full bg-base-200 shadow-xl p-4">
-      <img src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png' className='rounded-full' />
+      <img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconpacks.net%2Ffree-icon%2Fuser-3296.html&psig=AOvVaw3INtiCO5sKwGpnSkjiv_03&ust=1707489854169000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJjw48T9m4QDFQAAAAAdAAAAABAE' className='rounded-full' />
       <div className="p-4">
         <h2 className="card-title break-all">{userInfo?.user?.name}</h2>
         <div className='break-all'>{userInfo?.user?.email}</div>
