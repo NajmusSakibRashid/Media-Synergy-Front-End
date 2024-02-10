@@ -72,7 +72,7 @@ export default function profilePage({params}) {
                   </button>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {content&&content.profile&&content.profile.map((profile) => <ProfileCardContent>{profile}</ProfileCardContent>)}
+                  {content&&content.profiles&&content.profiles.map((profile) => <ProfileCardContent>{profile}</ProfileCardContent>)}
                 </div>
               </div>
               <div className="card-body basis-1/2 flex flex-col justify-around">

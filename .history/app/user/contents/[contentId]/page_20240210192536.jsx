@@ -72,7 +72,25 @@ export default function profilePage({params}) {
                   </button>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {content&&content.profile&&content.profile.map((profile) => <ProfileCardContent>{profile}</ProfileCardContent>)}
+                  <ProfileCardContent
+                    title="Profile 1"
+                    img="https://png.pngtree.com/png-vector/20220309/ourlarge/pngtree-a-hardware-store-clip-art-store-illustration-vector-png-image_12545940.png"
+                    description="hardware store"
+                  />
+
+                  <ProfileCardContent
+                    title="Profile 2"
+                    img="https://png.pngtree.com/png-vector/20220309/ourlarge/pngtree-a-hardware-store-clip-art-store-illustration-vector-png-image_12545940.png"
+                    description="hardware store"
+                  />
+
+                  <ProfileCardContent
+                    title="Profile 3"
+                    img="https://img.freepik.com/free-vector/organic-flat-people-business-training-illustration_52683-59856.jpg"
+                    description="hardware golpo kori sobai mile
+                    nice store    never think about it
+                    "
+                  />
                 </div>
               </div>
               <div className="card-body basis-1/2 flex flex-col justify-around">

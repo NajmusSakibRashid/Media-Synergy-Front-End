@@ -4,8 +4,7 @@ import {useState} from 'react'
 
 export default function content({children}) {
   const [show, setShow] = useState(true);
-  const publish=(e)=>{
-    e.stopPropagation();
+  const publish=()=>{
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/publish`;
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
@@ -31,8 +30,7 @@ export default function content({children}) {
     }
     fetchData();
   }
-  const deletef=(e)=>{
-    e.stopPropagation();
+  const deletef=()=>{
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${children._id}`;
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
@@ -58,7 +56,7 @@ export default function content({children}) {
     return null;
   }
   return (
-    <div onClick={()=>window.location.href=`/user/contents/${children._id}`} className="card w-full h-96 bg-base-200 hover:bg-base-300">
+    <div onClick={()=>window.location.href=`/user/contents/${children._id}`} className="card w-full h-96 bg-base-300">
       {children.media.length>0&&<img src={children.media} className="p-4 h-40 w-full object-cover" />}
       <div className="card-title p-4">
         {children.title}

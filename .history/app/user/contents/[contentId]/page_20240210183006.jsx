@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 
 import User from "@/app/components/user";
 import ContentImage from "../../../components/contents/content-image";
@@ -22,31 +22,7 @@ import { useState } from "react";
 
 Chart.register(CategoryScale);
 
-export default function profilePage({params}) {
-  const [content, setContent] = useState(false);
-  useEffect(() => {
-    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${params.contentId}`;
-    const token = localStorage.getItem("token");
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-    const requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-    };
-    const fetchData = async () => {
-      const promise = await fetch(url, requestOptions);
-      if (promise.status == 200) {
-        const response = await promise.json();
-        setContent(response);
-      } else {
-        alert(promise.statusText);
-      }
-    };
-    fetchData();
-  }, []);
-  useEffect(() => {
-    console.log(content);
-  }, [content]);
+export default function profilePage() {
   return (
     <div>
       <div className="flex flex-col mt-16">
@@ -58,12 +34,12 @@ export default function profilePage({params}) {
               <div className="basis-1/2 flex flex-col justify-around">
                 <div className="relative">
                   <button className="btn btn-neutral min-h-0 h-6 w-16 absolute bottom-[10%] right-[10%]">
-                    Edit
+                    Edit Content
                   </button>
-                  {content&&content.media&&<img
-                    src={content.media[0]}
+                  <img
+                    src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
                     className="rounded-full"
-                  />}
+                  />
                 </div>
                 <div className="card-title border-b-2 justify-between">
                   Profiles Containing This Content
@@ -72,7 +48,25 @@ export default function profilePage({params}) {
                   </button>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  {content&&content.profile&&content.profile.map((profile) => <ProfileCardContent>{profile}</ProfileCardContent>)}
+                  <ProfileCardContent
+                    title="Profile 1"
+                    img="https://png.pngtree.com/png-vector/20220309/ourlarge/pngtree-a-hardware-store-clip-art-store-illustration-vector-png-image_12545940.png"
+                    description="hardware store"
+                  />
+
+                  <ProfileCardContent
+                    title="Profile 2"
+                    img="https://png.pngtree.com/png-vector/20220309/ourlarge/pngtree-a-hardware-store-clip-art-store-illustration-vector-png-image_12545940.png"
+                    description="hardware store"
+                  />
+
+                  <ProfileCardContent
+                    title="Profile 3"
+                    img="https://img.freepik.com/free-vector/organic-flat-people-business-training-illustration_52683-59856.jpg"
+                    description="hardware golpo kori sobai mile
+                    nice store    never think about it
+                    "
+                  />
                 </div>
               </div>
               <div className="card-body basis-1/2 flex flex-col justify-around">
@@ -144,6 +138,26 @@ export default function profilePage({params}) {
               ]}
             />
 
+            {/* <BarChart
+            chartData={[
+              {
+                title: "Chart 1",
+                labels: ["A", "B", "C", "D", "E"],
+                data: [10, 20, 30, 40, 50],
+              },
+            ]}
+          />
+
+      {/* Second instance of BarChart */}
+            {/* <BarChart
+        chartData={[
+          {
+            title: "Chart 2",
+            labels: ["X", "Y", "Z"],
+            data: [15, 25, 35],
+          },
+        ]}
+      />  */}
 
             <div className="card-title self-center">Reach</div>
 
@@ -155,6 +169,52 @@ export default function profilePage({params}) {
             />
 
             <canvas id="lineChart"></canvas>
+            {/* <div className="self-center">
+              <p className="text-xl">
+                <b>Search Appearance by Keywords</b>
+              </p>
+              <br />
+              <p>
+                <i>
+                  <h6 className="text-blue-700">#discount</h6>
+                </i>
+              </p>
+              <progress
+                className="progress progress-success w-96"
+                value="95"
+                max="100"
+              ></progress>
+              <br />
+              <p>
+                <i>
+                  <h6 className="text-blue-700">#juta</h6>
+                </i>
+              </p>
+              <progress
+                className="progress progress-error w-96"
+                value="15"
+                max="100"
+              ></progress>
+              <br />
+              <p>
+                <i>
+                  <h6 class="text-blue-700">#bazar</h6>
+                </i>Exit
+                max="100"
+              ></progress>
+              <br />
+              <p>
+                <i>
+                  <h6 className="text-blue-700">#shosta</h6>
+                </i>
+              </p>
+              <progress
+                className="progress progress-success w-96"
+                value="75"
+                max="100"
+              ></progress>
+              <br />
+            </div> */}
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="../scripts/script.js"></script>
           </div>
