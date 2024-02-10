@@ -4,8 +4,8 @@ const ContentTime = ({ days, hours, minutes, seconds }) => {
   return (
     <div>
       <div>
-        <h2 class="card-title">Time after posted:</h2>
-        <div class="flex gap-5">
+        <h2 className="card-title">Time after posted:</h2>
+        <div className="flex gap-5">
           <div>
             <span className="countdown font-mono text-4xl">
               <span style={{ "--value": { days } }}></span>

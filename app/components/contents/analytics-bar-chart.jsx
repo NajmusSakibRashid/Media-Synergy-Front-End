@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js/auto"; // Import Chart.js library
 
-const BarChart = ({ chartData }) => {
+const BarChart = ({ chartData, barColors }) => {
   useEffect(() => {
     // Predefined color scheme
-    const colors = [
+    const defaultColors = [
       "rgba(75, 192, 192, 0.5)",
       "rgba(255, 99, 132, 0.5)",
       "rgba(54, 162, 235, 0.5)",
@@ -17,15 +17,13 @@ const BarChart = ({ chartData }) => {
       "rgba(255, 102, 204, 0.5)",
     ];
 
+    // Use custom colors if provided, or fallback to default colors
+    const colors = barColors && barColors.length === chartData.length ? barColors : defaultColors;
+
     // Create charts
     chartData.forEach((data, index) => {
       const canvasId = `barChart-${index}`;
-      console.log(canvasId);
-      console.log("hello world");
       const ctx = document.getElementById(canvasId);
-      ctx.setAttribute("height", "200");
-      //   ctx.setAttribute("width", "1000");
-      console.log("ctx: " + ctx.ATTRIBUTE_NODE);
       if (ctx) {
         const config = {
           type: "bar",
@@ -66,7 +64,7 @@ const BarChart = ({ chartData }) => {
         }
       });
     };
-  }, [chartData]);
+  }, [chartData, barColors]);
 
   return (
     <div>
