@@ -10,7 +10,6 @@ export default function page() {
   const [profiles, setProfiles] = useState(new Set())
   const changeHandler = (e, preProcess) => {
     setContent({ ...content, [e.target.name]: preProcess(e.target.value) })
-    // console.log(content);
   }
   const consumerPreProcess = (data) => {
     if (content.consumer) {
@@ -20,40 +19,11 @@ export default function page() {
       return [data]
     }
   }
-  const uploadMedia = async (file)=>{
-    const url = `${process.env.NEXT_PUBLIC_BACK_END}/file`;
-    const token = localStorage.getItem('token');
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-    const formData = new FormData();
-    formData.append('file', file);
-    const requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: formData,
-      redirect: 'follow'
-    };
-    const fetchData = async () => {
-      const promise = await fetch(url, requestOptions);
-      if (promise.status == 200) {
-        const response = await promise.json();
-        console.log(response);
-        return `${process.env.NEXT_PUBLIC_BACK_END}/${response.name}`;
-      }
-      else {
-        alert(promise.statusText);
-      }
-      return '';
-    }
-    return fetchData();
-  }
   const saveHandler = async () => {
     if (!content.title || !content.productsServices || !content.consumer || !content.description || !profiles.size) {
       alert('Please fill all the fields');
       return;
     }
-    const media=content.media?[await uploadMedia(content.media)]:[''];
-    console.log(media);
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content`;
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
@@ -70,7 +40,7 @@ export default function page() {
         profiles: [...profiles],
         keywords: [],
         profile: [],
-        media,
+        media: '',
         category: '',
         profile: [...profiles]
       }),
@@ -96,7 +66,7 @@ export default function page() {
     <div className="card shadow-xl w-full bg-base-200 p-4 gap-4">
       <div className="card-title text4xl self-center">Build Content</div>
       <div className="flex gap-4">
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-around">
           <div className="card-title">Details</div>
           <label className="label">Title:</label>
           <input name='title' onChange={(e) => { changeHandler(e, (data) => data) }} type="text" className="input input-bordered w-full" placeholder="Enter your title here" />
@@ -108,14 +78,12 @@ export default function page() {
           </div>
           <label htmlFor="" className="label">Description:</label>
           <textarea name='description' onChange={(e) => { changeHandler(e, (data) => data) }} className="textarea h-24 textarea-bordered w-full" placeholder="Enter description here"></textarea>
-        </div>
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
-          <div className="card-title">Profiles and Media</div>
-          <label htmlFor="media" className="label">Add Media:</label>
-          {content.media ? <img src={URL.createObjectURL(content.media)} alt="media" className="rounded-lg" /> : null}
-          <input onChange={(e) => { setContent({...content,media:e.target.files[0]})}} name='media' type="file" className="file-input file-input-bordered w-full " />
           <label htmlFor="" className="label">Select Profile:</label>
           <ProfileCardContainer setProfiles={setProfiles} />
+        </div>
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 jsutify-around">
+          <div className="card-title">Keywords and Media</div>
+          <input onChange={changeHandler} name='media' type="file" className="file-input file-input-bordered w-full " />
         </div>
       </div>
       <button className="btn btn-success w-full max-w-xs self-center" onClick={saveHandler}>Save</button>

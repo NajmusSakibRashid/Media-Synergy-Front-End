@@ -9,7 +9,7 @@ export default function CardButtonContent({ children,id }) {
             <div className={`timeline-${(id%2==0)?'start':'end'} md:text-end mb-10`}>
                 <time className="font-mono italic">{children.date}</time>
                 <div className="text-lg font-black">{children.title}</div>
-                <div>{children.description}</div>
+                {children.description}
                 {children.media.length&&children.media[0].length ? <img src={children.media[0]} alt="media" className="rounded-lg" /> : null}
                 <button className="btn btn-primary mt-4">Details</button>
             </div>

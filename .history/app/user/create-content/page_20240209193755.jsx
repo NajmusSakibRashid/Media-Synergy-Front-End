@@ -38,7 +38,7 @@ export default function page() {
       if (promise.status == 200) {
         const response = await promise.json();
         console.log(response);
-        return `${process.env.NEXT_PUBLIC_BACK_END}/${response.name}`;
+        return `${process.env.NEXT_PUBLIC_BACK_END}/${response.filename}`;
       }
       else {
         alert(promise.statusText);
@@ -52,8 +52,7 @@ export default function page() {
       alert('Please fill all the fields');
       return;
     }
-    const media=content.media?[await uploadMedia(content.media)]:[''];
-    console.log(media);
+    const media=content.media?Array.from(await uploadMedia(content.media)):[''];
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content`;
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
@@ -96,7 +95,7 @@ export default function page() {
     <div className="card shadow-xl w-full bg-base-200 p-4 gap-4">
       <div className="card-title text4xl self-center">Build Content</div>
       <div className="flex gap-4">
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-around">
           <div className="card-title">Details</div>
           <label className="label">Title:</label>
           <input name='title' onChange={(e) => { changeHandler(e, (data) => data) }} type="text" className="input input-bordered w-full" placeholder="Enter your title here" />
@@ -108,14 +107,14 @@ export default function page() {
           </div>
           <label htmlFor="" className="label">Description:</label>
           <textarea name='description' onChange={(e) => { changeHandler(e, (data) => data) }} className="textarea h-24 textarea-bordered w-full" placeholder="Enter description here"></textarea>
+          <label htmlFor="" className="label">Select Profile:</label>
+          <ProfileCardContainer setProfiles={setProfiles} />
         </div>
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
-          <div className="card-title">Profiles and Media</div>
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 jsutify-around">
+          <div className="card-title">Keywords and Media</div>
           <label htmlFor="media" className="label">Add Media:</label>
           {content.media ? <img src={URL.createObjectURL(content.media)} alt="media" className="rounded-lg" /> : null}
           <input onChange={(e) => { setContent({...content,media:e.target.files[0]})}} name='media' type="file" className="file-input file-input-bordered w-full " />
-          <label htmlFor="" className="label">Select Profile:</label>
-          <ProfileCardContainer setProfiles={setProfiles} />
         </div>
       </div>
       <button className="btn btn-success w-full max-w-xs self-center" onClick={saveHandler}>Save</button>

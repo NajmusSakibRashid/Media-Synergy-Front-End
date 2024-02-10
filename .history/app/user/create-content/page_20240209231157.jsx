@@ -96,7 +96,7 @@ export default function page() {
     <div className="card shadow-xl w-full bg-base-200 p-4 gap-4">
       <div className="card-title text4xl self-center">Build Content</div>
       <div className="flex gap-4">
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-around">
           <div className="card-title">Details</div>
           <label className="label">Title:</label>
           <input name='title' onChange={(e) => { changeHandler(e, (data) => data) }} type="text" className="input input-bordered w-full" placeholder="Enter your title here" />
@@ -109,7 +109,7 @@ export default function page() {
           <label htmlFor="" className="label">Description:</label>
           <textarea name='description' onChange={(e) => { changeHandler(e, (data) => data) }} className="textarea h-24 textarea-bordered w-full" placeholder="Enter description here"></textarea>
         </div>
-        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-between">
+        <div className="basis-1/2 card-body flex flex-col w-full gap-2 justify-around">
           <div className="card-title">Profiles and Media</div>
           <label htmlFor="media" className="label">Add Media:</label>
           {content.media ? <img src={URL.createObjectURL(content.media)} alt="media" className="rounded-lg" /> : null}
