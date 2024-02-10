@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import axios for making HTTP requests
 
 import User from "@/app/components/user";
 import ContentImage from "../components/contents/content-image";
@@ -15,7 +17,7 @@ import AnalyticsTripleReach from "../components/contents/analytics-tripple-stats
 
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import { useState } from "react";
+// import { useState } from "react";
 // import { Data } from "./Data";
 // import PieChart from "../components/PieChart";
 // import "./styles.css";
@@ -23,6 +25,50 @@ import { useState } from "react";
 Chart.register(CategoryScale);
 
 export default function profilePage() {
+  // const access_token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+  const access_token = "EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD";
+  const [apiData, setApiData] = useState(null);
+  const base_url = "https://graph.facebook.com/v19.0";
+  const page_id = "109297781230039";
+  const post_id = "109297781230039_427236646102816";
+  const reactionFetchMetrics = "insights?metric=post_reactions_by_type_total";
+  const final_api_url = `${base_url}/${post_id}/${reactionFetchMetrics}&access_token=${access_token}`;
+  console.log("final_api_url:", final_api_url);
+  console.log("access_token:", access_token);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make a GET request to your API endpoint
+        const response = await axios.get(
+          final_api_url
+          // "https://graph.facebook.com/v19.0/109297781230039_427236646102816/insights?metric=post_reactions_by_type_total&access_token=EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD"
+          // access_token
+        );
+
+        console.log("Data:", response.data);
+        console.log("hi");
+        // Update the state with the fetched data
+        setApiData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the fetchData function
+    fetchData();
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+  // data extraction
+  let title, description, like, love, wow;
+  if (apiData && apiData.data && apiData.data.length > 0) {
+    const insightData = apiData.data[0];
+    title = insightData.title;
+    description = insightData.description;
+    like = insightData.values[0].value.like;
+    love = insightData.values[0].value.love;
+    wow = insightData.values[0].value.wow;
+  }
+
   return (
     <div>
       <div className="flex flex-col mt-16">
@@ -118,7 +164,7 @@ export default function profilePage() {
             </div>
             <ContentSectionHeader header="Content Analytics" />
 
-            <BarChart
+            {/* <BarChart
               chartData={[
                 {
                   title: "Daily Reach",
@@ -136,7 +182,7 @@ export default function profilePage() {
                   data: [15, 25, 100],
                 },
               ]}
-            />
+            /> */}
 
             {/* <BarChart
             chartData={[
@@ -167,6 +213,63 @@ export default function profilePage() {
               fanViews="86"
               storyViews="14"
             />
+
+            <div>
+              <h2>Title: {title}</h2>
+              <p>Description: {description}</p>
+              <p>Like: {like}</p>
+              <p>Love: {love}</p>
+              <p>Wow: {wow}</p>
+            </div>
+
+            <BarChart
+              chartData={[
+                {
+                  title: title,
+                  description: description,
+                  labels: ["Like", "Love", "Wow"],
+                  data: [like, love, wow],
+                },
+              ]}
+              barColors={["#0000FF", "#FF69B4", "#FFD700"]} // Custom colors for Like, Love, Wow
+            />
+
+            {/* <BarChart
+              chartData={[
+                {
+                  title: "Post Reactions",
+                  labels: ["Like", "Love", "Wow"],
+                  data: [20, 30, 40],
+                },
+              ]}
+              barColors={[
+                "rgba(255, 99, 132, 0.5)",
+                "rgba(54, 162, 235, 0.5)",
+                "rgba(255, 206, 86, 0.5)",
+              ]}
+            /> */}
+
+            {/* <BarChart
+              chartData={[
+                {
+                  title: "Post Reactions",
+                  labels: ["Like", "Love", "Wow"],
+                  data: [20, 30, 40],
+                  colors: [
+                    "rgba(255, 99, 132, 0.5)",
+                    "rgba(54, 162, 235, 0.5)",
+                    "rgba(255, 206, 86, 0.5)",
+                  ],
+                },
+              ]}
+              barColors={[
+                "rgba(255, 99, 132, 0.5)",
+                "rgba(54, 162, 235, 0.5)",
+                "rgba(255, 206, 86, 0.5)",
+              ]}
+            /> */}
+
+            {/* apiData: {apiData && JSON.stringify(apiData, null, 2)} */}
 
             <canvas id="lineChart"></canvas>
             {/* <div className="self-center">
