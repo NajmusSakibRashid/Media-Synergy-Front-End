@@ -2,6 +2,7 @@ import React from "react";
 
 import PlusButton from "@/app/components/scheduling/plus-button";
 import ContentCard from "@/app/components/scheduling/content-card";
+import Schedule from "@/app/components/scheduling/schedule";
 
 function Page() {
   return (
@@ -44,456 +45,458 @@ function Page() {
           </div>
         </div>
         {/* <div className="basis-8/12 p-4">
-              <div
-                className="h-screen overflow-scroll grid auto-rows-auto"
-                style="width: 66vw; grid-template-columns: repeat(25,8rem);"
-              >
-                <div></div>
-                <div className="sticky top-0 p-4">08:00 AM</div>
-                <div className="sticky top-0 p-4">09:00 AM</div>
-                <div className="sticky top-0 p-4">10:00 AM</div>
-                <div className="sticky top-0 p-4">11:00 AM</div>
-                <div className="sticky top-0 p-4">12:00 PM</div>
-                <div className="sticky top-0 p-4">01:00 PM</div>
-                <div className="sticky top-0 p-4">02:00 PM</div>
-                <div className="sticky top-0 p-4">03:00 PM</div>
-                <div className="sticky top-0 p-4">04:00 PM</div>
-                <div className="sticky top-0 p-4">05:00 PM</div>
-                <div className="sticky top-0 p-4">06:00 PM</div>
-                <div className="sticky top-0 p-4">07:00 PM</div>
-                <div className="sticky top-0 p-4">08:00 PM</div>
-                <div className="sticky top-0 p-4">09:00 PM</div>
-                <div className="sticky top-0 p-4">10:00 PM</div>
-                <div className="sticky top-0 p-4">11:00 PM</div>
-                <div className="sticky top-0 p-4">12:00 AM</div>
-                <div className="sticky top-0 p-4">01:00 AM</div>
-                <div className="sticky top-0 p-4">02:00 AM</div>
-                <div className="sticky top-0 p-4">03:00 AM</div>
-                <div className="sticky top-0 p-4">04:00 AM</div>
-                <div className="sticky top-0 p-4">05:00 AM</div>
-                <div className="sticky top-0 p-4">06:00 AM</div>
-                <div className="sticky top-0 p-4">07:00 AM</div>
-                <div className="sticky left-0">Saturday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
+          <div
+            className="h-screen overflow-scroll grid auto-rows-auto"
+            style={{ width: "66vw", gridTemplateColumns: "repeat(25,8rem)" }}
+          >
+            <div></div>
+            <div className="sticky top-0 p-4">08:00 AM</div>
+            <div className="sticky top-0 p-4">09:00 AM</div>
+            <div className="sticky top-0 p-4">10:00 AM</div>
+            <div className="sticky top-0 p-4">11:00 AM</div>
+            <div className="sticky top-0 p-4">12:00 PM</div>
+            <div className="sticky top-0 p-4">01:00 PM</div>
+            <div className="sticky top-0 p-4">02:00 PM</div>
+            <div className="sticky top-0 p-4">03:00 PM</div>
+            <div className="sticky top-0 p-4">04:00 PM</div>
+            <div className="sticky top-0 p-4">05:00 PM</div>
+            <div className="sticky top-0 p-4">06:00 PM</div>
+            <div className="sticky top-0 p-4">07:00 PM</div>
+            <div className="sticky top-0 p-4">08:00 PM</div>
+            <div className="sticky top-0 p-4">09:00 PM</div>
+            <div className="sticky top-0 p-4">10:00 PM</div>
+            <div className="sticky top-0 p-4">11:00 PM</div>
+            <div className="sticky top-0 p-4">12:00 AM</div>
+            <div className="sticky top-0 p-4">01:00 AM</div>
+            <div className="sticky top-0 p-4">02:00 AM</div>
+            <div className="sticky top-0 p-4">03:00 AM</div>
+            <div className="sticky top-0 p-4">04:00 AM</div>
+            <div className="sticky top-0 p-4">05:00 AM</div>
+            <div className="sticky top-0 p-4">06:00 AM</div>
+            <div className="sticky top-0 p-4">07:00 AM</div>
+            <div className="sticky left-0">Saturday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
                     <img
-                      src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
                       alt=""
                     />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                    <div
-                      className="btn btn-primary btn-xs m-2"
-                      onclick="document.getElementById('more-schedules').style.display='grid'"
-                    >
-                      + 3 more
-                    </div>
                   </div>
                 </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
+                <img
+                  src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+                <div
+                  className="btn btn-primary btn-xs m-2"
+                  onclick="document.getElementById('more-schedules').style.display='grid'"
+                >
+                  + 3 more
                 </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Sunday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Monday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Tuesday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Wednesday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Thursday</div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="sticky left-0">Friday</div>
-                <div className="border-solid border-l-2 h-48 relative">
-                  <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
-                    <div className="avatar absolute -top-4 -left-4 z-10">
-                      <div className="w-8 rounded-full">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <img
-                      src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
-                      alt=""
-                    />
-                    <div className="card-title">Lorem Ipsum</div>
-                    <div className="badge badge-outline">Scheduled</div>
-                  </div>
-                </div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
-                <div className="border-solid border-l-2 h-48 relative"></div>
               </div>
-            </div> */}
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Sunday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Monday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Tuesday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Wednesday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Thursday</div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://e7.pngegg.com/pngimages/421/879/png-clipart-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://png.pngtree.com/thumb_back/fw800/background/20220506/pngtree-datacenter-equipment-personnel-isometric-flowchart-with-generator-server-hardware-maintenance-administration-image_1290909.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://img.freepik.com/free-vector/hotel-building-concept-illustration_114360-12959.jpg"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="sticky left-0">Friday</div>
+            <div className="border-solid border-l-2 h-48 relative">
+              <div className="absolute top-0 left-0 card items-center shadow-xl w-32 bg-base-300">
+                <div className="avatar absolute -top-4 -left-4 z-10">
+                  <div className="w-8 rounded-full">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/800px-LinkedIn_icon_circle.svg.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <img
+                  src="https://static-00.iconduck.com/assets.00/fast-food-illustration-2048x1469-7bth2szr.png"
+                  alt=""
+                />
+                <div className="card-title">Lorem Ipsum</div>
+                <div className="badge badge-outline">Scheduled</div>
+              </div>
+            </div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+            <div className="border-solid border-l-2 h-48 relative"></div>
+          </div>
+        </div> */}
+
+        <Schedule />
       </div>
       {/* <div
             id="scheduling-form"
