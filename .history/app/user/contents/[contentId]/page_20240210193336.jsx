@@ -77,17 +77,19 @@ export default function profilePage({params}) {
               </div>
               <div className="card-body basis-1/2 flex flex-col justify-around">
                 <ContentTextBox
-                  text={content?.title}
+                  text="Content Title"
                   buttonName="Edit"
                   description=""
                 />
 
-                {/* <ContentTime days={15} hours={10} min={24} sec={46} /> */}
+                <ContentTime days="15" hours="10" min="24" sec="46" />
 
                 <ContentTextBox
                   text="Description"
                   buttonName="Edit"
-                  description={content?.description}
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  enim ad minim veniam"
                 />
 
                 <div className="flex justify-between">
@@ -97,21 +99,21 @@ export default function profilePage({params}) {
                   </button>
                 </div>
                 <div className="flex w-full justify-between">
-                  {content&&content.productsServices&&<ContentList
+                  <ContentList
                     listName="Products"
-                    lists={content.productsServices}
-                  />}
-                  {content&&content.consumer&&<ContentList
-                    listName='Consumers'
-                    lists={content.consumer.map(consumer => <div>{`${consumer.ageFrom} to ${consumer.ageTo} ${consumer.gender.toLowerCase==='both'?'males and females':consumer.gender+'s'}`}</div>)}
-                  />}
+                    lists={["Product 1", "Product 2", "Product 3"]}
+                  />
+                  <ContentList
+                    listName="Consumers"
+                    lists={["Consumer 1", "Consumer 2", "Consumer 3"]}
+                  />
                 </div>
 
-                {/* <ContentTextBox
+                <ContentTextBox
                   text="Hashtags"
                   buttonName="Edit"
                   description=""
-                /> */}
+                />
 
                 {/* <ContentTags tags={["tag1", "tag2", "tag3"]} /> */}
               </div>

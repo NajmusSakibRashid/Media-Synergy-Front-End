@@ -6,17 +6,15 @@ function ContentList({ listName, lists }) {
       <h2 className="card-title">{listName}</h2>
       <ul
         style={{
-            listStyleType: "none",
+            listStyleType: "circle", // Change this to any of the following: disc, circle, square, none
             paddingLeft: "20px", // Adjust the left padding for spacing
             fontSize: "16px", // Set the font size of the list items
             lineHeight: "1.5", // Set the line height for better readability
           }}
-        className="list-inside"
+        className="list-inside p-4"
       >
         {lists.map((item, index) => (
-          <li key={index}>
-            <div>{item}</div>
-          </li>
+          <li className="break-all" key={index}>{item}</li>
         ))}
       </ul>
     </div>

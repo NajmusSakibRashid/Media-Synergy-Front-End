@@ -31,8 +31,8 @@ function ProfileCardsContent({ children}) {
       <div className="card bg-base-100 profile border-2 border-base-100">
         <div className="card-body">
           {profile&&profile.logo&&<img src={profile.logo} alt="" className="rounded-xl max-h-16 object-cover" />}
-          <div className="card-title text-sm">{profile.name}</div>
-          <div className="text-xs">{profile?.description?.aboutUs.slice(0,100)}</div>
+          {/* <div className="card-title text-sm">{title}</div>
+          <div className="card-body text-xs">{description}</div> */}
         </div>
       </div>
     </div>

@@ -99,19 +99,16 @@ export default function profilePage({params}) {
                 <div className="flex w-full justify-between">
                   {content&&content.productsServices&&<ContentList
                     listName="Products"
-                    lists={content.productsServices}
+                    lists={content?.productsServices}
                   />}
-                  {content&&content.consumer&&<ContentList
-                    listName='Consumers'
-                    lists={content.consumer.map(consumer => <div>{`${consumer.ageFrom} to ${consumer.ageTo} ${consumer.gender.toLowerCase==='both'?'males and females':consumer.gender+'s'}`}</div>)}
-                  />}
+                  {content&&content.consumer&&content.consumer.map(consumer => <div>{`${consumer.ageFrom} to ${consumer.ageTo} ${consumer.gender.toLowerCase==='both'?'males and females':consumer.gender+'s'}`}</div>)}
                 </div>
 
-                {/* <ContentTextBox
+                <ContentTextBox
                   text="Hashtags"
                   buttonName="Edit"
                   description=""
-                /> */}
+                />
 
                 {/* <ContentTags tags={["tag1", "tag2", "tag3"]} /> */}
               </div>

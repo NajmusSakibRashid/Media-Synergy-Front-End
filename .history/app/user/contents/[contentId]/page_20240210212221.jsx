@@ -107,11 +107,11 @@ export default function profilePage({params}) {
                   />}
                 </div>
 
-                {/* <ContentTextBox
+                <ContentTextBox
                   text="Hashtags"
                   buttonName="Edit"
                   description=""
-                /> */}
+                />
 
                 {/* <ContentTags tags={["tag1", "tag2", "tag3"]} /> */}
               </div>

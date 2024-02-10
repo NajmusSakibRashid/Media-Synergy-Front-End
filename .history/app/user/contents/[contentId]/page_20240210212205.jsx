@@ -96,7 +96,7 @@ export default function profilePage({params}) {
                     Edit
                   </button>
                 </div>
-                <div className="flex w-full justify-between">
+                <div className="flex w-full">
                   {content&&content.productsServices&&<ContentList
                     listName="Products"
                     lists={content.productsServices}
@@ -107,11 +107,11 @@ export default function profilePage({params}) {
                   />}
                 </div>
 
-                {/* <ContentTextBox
+                <ContentTextBox
                   text="Hashtags"
                   buttonName="Edit"
                   description=""
-                /> */}
+                />
 
                 {/* <ContentTags tags={["tag1", "tag2", "tag3"]} /> */}
               </div>

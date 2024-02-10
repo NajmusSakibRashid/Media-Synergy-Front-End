@@ -6,8 +6,7 @@ function ContentList({ listName, lists }) {
       <h2 className="card-title">{listName}</h2>
       <ul
         style={{
-            listStyleType: "none",
-            paddingLeft: "20px", // Adjust the left padding for spacing
+            listStyleType: "none", // Adjust the left padding for spacing
             fontSize: "16px", // Set the font size of the list items
             lineHeight: "1.5", // Set the line height for better readability
           }}
@@ -15,6 +14,7 @@ function ContentList({ listName, lists }) {
       >
         {lists.map((item, index) => (
           <li key={index}>
+            <img src={image} alt="checkmark" className="h-5 w-5 inline" />
             <div>{item}</div>
           </li>
         ))}
