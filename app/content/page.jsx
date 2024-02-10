@@ -158,7 +158,7 @@ export default function profilePage() {
           },
         ]}
       />  */}
-           
+
             <div className="card-title self-center">Reach</div>
 
             <AnalyticsTripleReach
