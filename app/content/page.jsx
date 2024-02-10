@@ -25,8 +25,9 @@ import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 export default function profilePage() {
-  const access_token = process.env.ACCESS_TOKEN;
-  // const access_token = "EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD";
+  //   const access_token = process.env.ACCESS_TOKEN;
+  const access_token =
+    "EABclpNe7DwcBO8mH3XC8yOGzABeJwUAfI0lFAvXNbep9RbPgxluZB38XEwrz9ZAvTxPHIGepreZBBnJbZCLV8s6znPDMjnqJ3D09k0zR0I0EZAZBpUxPTDs8cx9ysDJTXemJu1mXnQtQ5yfsEoFwWbx3moutw3ZA0vSWsZCbQAGZAxEvVZBK9LgFsRzcVtBLfQXA61J8y1LypYkJXocwmwMZCTaTjHZCjeIN4TD7Bedr0RMZD";
   const [apiData, setApiData] = useState(null);
   const base_url = "https://graph.facebook.com/v19.0";
   const page_id = "109297781230039";
