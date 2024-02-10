@@ -25,14 +25,24 @@ import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 export default function profilePage() {
+  // const access_token = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+  const access_token = "EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD";
   const [apiData, setApiData] = useState(null);
-
+  const base_url = "https://graph.facebook.com/v19.0";
+  const page_id = "109297781230039";
+  const post_id = "109297781230039_427236646102816";
+  const reactionFetchMetrics = "insights?metric=post_reactions_by_type_total";
+  const final_api_url = `${base_url}/${post_id}/${reactionFetchMetrics}&access_token=${access_token}`;
+  console.log("final_api_url:", final_api_url);
+  console.log("access_token:", access_token);
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Make a GET request to your API endpoint
         const response = await axios.get(
-          "https://graph.facebook.com/v19.0/109297781230039_427236646102816/insights?metric= post_reactions_by_type_total&access_token=EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD"
+          final_api_url
+          // "https://graph.facebook.com/v19.0/109297781230039_427236646102816/insights?metric=post_reactions_by_type_total&access_token=EABclpNe7DwcBO5MTrXlQApxDViK7DFZAxYvcSfHHMSZBmIWdMFIiZBrrQUxa4RRKzZAfZAgntHgqbZB7gZA71tolRhrBprh91hnIS8PQfuIZABYHCHvv9jNuMAXIZAlMIGX1v4hslRB4aISlYNkN5RQKH2mWWR5JYRL5koYopwJsAT75oKl4eHZAzp8MSEJ7YEMhunmctixHqeUn7Vnr0skbmo017Ye8ZBZCR734Oz7FgCAZD"
+          // access_token
         );
 
         console.log("Data:", response.data);

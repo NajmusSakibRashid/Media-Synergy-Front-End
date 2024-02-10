@@ -1,25 +1,8 @@
 import React, { useEffect } from "react";
 import Chart from "chart.js/auto"; // Import Chart.js library
 
-const BarChart = ({ chartData, barColors }) => {
+const BarChart = ({ chartData }) => {
   useEffect(() => {
-    // Predefined color scheme
-    const defaultColors = [
-      "rgba(75, 192, 192, 0.5)",
-      "rgba(255, 99, 132, 0.5)",
-      "rgba(54, 162, 235, 0.5)",
-      "rgba(255, 159, 64, 0.5)",
-      "rgba(153, 102, 255, 0.5)",
-      "rgba(255, 206, 86, 0.5)",
-      "rgba(231,233,237, 0.5)",
-      "rgba(161, 160, 157, 0.5)",
-      "rgba(102, 204, 255, 0.5)",
-      "rgba(255, 102, 204, 0.5)",
-    ];
-
-    // Use custom colors if provided, or fallback to default colors
-    const colors = barColors && barColors.length === chartData.length ? barColors : defaultColors;
-
     // Create charts
     chartData.forEach((data, index) => {
       const canvasId = `barChart-${index}`;
@@ -32,7 +15,7 @@ const BarChart = ({ chartData, barColors }) => {
             datasets: [
               {
                 label: data.title,
-                backgroundColor: colors[index % colors.length], // Use predefined colors cyclically
+                backgroundColor: `rgba(${getRandomColor()}, 0.6)`, // Generate random color for each bar
                 data: data.data,
               },
             ],
@@ -64,7 +47,14 @@ const BarChart = ({ chartData, barColors }) => {
         }
       });
     };
-  }, [chartData, barColors]);
+  }, [chartData]);
+
+  const getRandomColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `${r}, ${g}, ${b}`;
+  };
 
   return (
     <div>
