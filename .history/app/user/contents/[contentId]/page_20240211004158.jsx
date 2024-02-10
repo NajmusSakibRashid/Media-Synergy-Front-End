@@ -171,7 +171,7 @@ export default function profilePage({params}) {
             />}
 
 
-            {/* <div className="card-title self-center">Reach</div> */}
+            <div className="card-title self-center">Reach</div>
 
             {analytics&&reactions&&<AnalyticsTripleReach
               reactionCount={`${toNumber(reactions.anger)+toNumber(reactions.haha)+toNumber(reactions.like)+toNumber(reactions.love)+toNumber(reactions.sorry)+toNumber(reactions.wow)}`}

@@ -41,7 +41,7 @@ export default function content({children}) {
         {children.description}
       </div>
       <div className="card-action p-4 flex justify-center gap-8">
-        <PublishButton>{children}</PublishButton>
+        <PublishButton/>
         <button onClick={deletef} className="btn btn-error">Delete</button>
       </div>
     </div>

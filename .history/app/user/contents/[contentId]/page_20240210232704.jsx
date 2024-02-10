@@ -24,8 +24,6 @@ Chart.register(CategoryScale);
 
 export default function profilePage({params}) {
   const [content, setContent] = useState(false);
-  const [analytics,setAnalytics]=useState(false);
-  const [reactions,setReactions]=useState(false);
   useEffect(() => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${params.contentId}`;
     const token = localStorage.getItem("token");
@@ -48,38 +46,7 @@ export default function profilePage({params}) {
   }, []);
   useEffect(() => {
     console.log(content);
-    if(!content||!content.postIds||!content.postIds.length){
-      console.log('we are here');
-      return;
-    }
-    let postId=false;
-    content.postIds.forEach((elem)=>{
-      if(elem.status==='success'&&elem.platform==='facebook')
-        postId=elem.id;
-    });
-    if(!postId)
-      return;
-    const url=`https://graph.facebook.com/v19.0/${postId}/insights?metric=post_reactions_by_type_total,post_impressions_unique,post_engaged_users,post_impressions_fan,post_impressions_by_story_type&access_token=${process.env.NEXT_PUBLIC_FACEBOOK_TOKEN}`;
-    const fetchData = async () => {
-      const response=await fetch(url);
-      if(response.status==200){
-        const data=await response.json();
-        setAnalytics(data);
-        setReactions(data.data[0].values[0].value);
-      }
-      else{
-        console.log(response.statusText);
-      }
-    };
-    fetchData();
   }, [content]);
-  useEffect(() => {
-    console.log('Analytics');
-    console.log(analytics);
-  }, [analytics]);
-  const toNumber=(data)=>{
-    return typeof data === 'number'?data:0;
-  }
   return (
     <div>
       <div className="flex flex-col mt-16">
@@ -155,30 +122,35 @@ export default function profilePage({params}) {
             </div>
             <ContentSectionHeader header="Content Analytics" />
 
-            {analytics&&<BarChart
+            <BarChart
               chartData={[
                 {
-                  title: analytics.data[0].title,
-                  labels: ["anger", "haha", "like","love","sorry","wow"],
-                  data: [toNumber(reactions.anger), toNumber(reactions.haha), toNumber(reactions.like), toNumber(reactions.love), toNumber(reactions.sorry), toNumber(reactions.wow)],
+                  title: "Daily Reach",
+                  labels: ["A", "B", "C"],
+                  data: [10, 20, 30],
                 },
                 {
-                  title: `${analytics.data[1].title} and ${analytics.data[2].title}`,
-                  labels: [analytics.data[1].title, analytics.data[2].title],
-                  data: [typeof analytics.data[1].values[0].value === 'number'?analytics.data[1].values[0].value:0, typeof analytics.data[2].values[0].value === 'number'?analytics.data[2].values[0].value:0],
-                }
+                  title: "Weekly Reach",
+                  labels: ["X", "Y", "Z"],
+                  data: [15, 25, 35],
+                },
+                {
+                  title: "Monthly Reach",
+                  labels: ["X", "Y", "Z"],
+                  data: [15, 25, 100],
+                },
               ]}
-            />}
+            />
 
 
-            {/* <div className="card-title self-center">Reach</div> */}
+            <div className="card-title self-center">Reach</div>
 
-            {analytics&&reactions&&<AnalyticsTripleReach
-              reactionCount={`${toNumber(reactions.anger)+toNumber(reactions.haha)+toNumber(reactions.like)+toNumber(reactions.love)+toNumber(reactions.sorry)+toNumber(reactions.wow)}`}
-              postViews={`${typeof analytics.data[1].values[0].value === 'number'?analytics.data[1].values[0].value:0}`}
-              fanViews={`${typeof analytics.data[3].values[0].value === 'number'?analytics.data[3].values[0].value:0}`}
-              storyViews={`${typeof analytics.data[4].values[0].value === 'number'?analytics.data[4].values[0].value:0}`}
-            />}
+            <AnalyticsTripleReach
+              reactionCount="100"
+              postViews="2.6M"
+              fanViews="86"
+              storyViews="14"
+            />
 
             {/* <canvas id="lineChart"></canvas>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

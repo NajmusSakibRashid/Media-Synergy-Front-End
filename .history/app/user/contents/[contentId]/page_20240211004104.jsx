@@ -171,10 +171,10 @@ export default function profilePage({params}) {
             />}
 
 
-            {/* <div className="card-title self-center">Reach</div> */}
+            <div className="card-title self-center">Reach</div>
 
             {analytics&&reactions&&<AnalyticsTripleReach
-              reactionCount={`${toNumber(reactions.anger)+toNumber(reactions.haha)+toNumber(reactions.like)+toNumber(reactions.love)+toNumber(reactions.sorry)+toNumber(reactions.wow)}`}
+              reactionCount={`${reactions.anger+reactions.haha+reactions.like+reactions.love+reactions.sorry+reactions.wow}`}
               postViews={`${typeof analytics.data[1].values[0].value === 'number'?analytics.data[1].values[0].value:0}`}
               fanViews={`${typeof analytics.data[3].values[0].value === 'number'?analytics.data[3].values[0].value:0}`}
               storyViews={`${typeof analytics.data[4].values[0].value === 'number'?analytics.data[4].values[0].value:0}`}

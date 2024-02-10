@@ -1,10 +1,11 @@
 'use client'
 
 import {useState} from 'react'
-import PublishButton from '@/app/components/utilities/publish-button'
+import publish from '@/app/components/utilities/publish'
 
 export default function content({children}) {
   const [show, setShow] = useState(true);
+  
   const deletef=(e)=>{
     e.stopPropagation();
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${children._id}`;
@@ -41,7 +42,7 @@ export default function content({children}) {
         {children.description}
       </div>
       <div className="card-action p-4 flex justify-center gap-8">
-        <PublishButton>{children}</PublishButton>
+        <button onClick={publish} className='btn btn-neutral'>Publish</button>
         <button onClick={deletef} className="btn btn-error">Delete</button>
       </div>
     </div>
