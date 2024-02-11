@@ -151,7 +151,7 @@ export default function profilePage({params}) {
             </div>
 
             <div className="self-center">
-              <ContentScheduleButton>{content}</ContentScheduleButton>
+              <ContentScheduleButton />
             </div>
             <ContentSectionHeader header="Content Analytics" />
 
