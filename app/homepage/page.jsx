@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
+import Carousel from "./carousel";
 
 function App() {
   const row1 = [
@@ -22,10 +23,33 @@ function App() {
   ];
 
   return (
-    <AppContainer>
+    <div>
+      {/* // <AppContainer> */}
       <Wrapper>
-        <Text>With Great Outcomes.</Text>
-        <Note>Our customers have gotten offers from awesome companies.</Note>
+        <Marquee>
+          <MarqueeGroup2>
+            {row1.map((el) => (
+              <ImageGroup>
+                <Image src={el} />
+              </ImageGroup>
+            ))}
+          </MarqueeGroup2>
+          <MarqueeGroup2>
+            {row1.map((el) => (
+              <ImageGroup>
+                <Image src={el} />
+              </ImageGroup>
+            ))}
+          </MarqueeGroup2>
+        </Marquee>
+        <Text>
+          Welcome to{" "}
+          <b className="text-center">
+            MediaSynergy
+            {/* <h1 className="text-center">MediaSynergy</h1> */}
+          </b>
+        </Text>
+        <Note>We Promote in the Best Social Media Platforms</Note>
         <Marquee>
           <MarqueeGroup>
             {row1.map((el) => (
@@ -42,24 +66,14 @@ function App() {
             ))}
           </MarqueeGroup>
         </Marquee>
-        <Marquee>
-          <MarqueeGroup2>
-            {row2.map((el) => (
-              <ImageGroup>
-                <Image src={el} />
-              </ImageGroup>
-            ))}
-          </MarqueeGroup2>
-          <MarqueeGroup2>
-            {row2.map((el) => (
-              <ImageGroup>
-                <Image src={el} />
-              </ImageGroup>
-            ))}
-          </MarqueeGroup2>
-        </Marquee>
+
+        <Carousel />
+        <br />
+        <br />
+        <br />
       </Wrapper>
-    </AppContainer>
+    </div>
+    // {/* </AppContainer> */}
   );
 }
 
