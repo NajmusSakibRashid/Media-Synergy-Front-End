@@ -2,6 +2,7 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import Carousel from "./carousel";
+// import Hero from "@/app/components/homepage/Hero.jsx";
 
 function App() {
   const row1 = [
