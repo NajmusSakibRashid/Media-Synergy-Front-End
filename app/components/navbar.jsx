@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Link from 'next/link'
+// import Link from 'next/link'
 import Notification from '@/app/components/notification/notification'
 
 export default function navbar({ dropdownContent }) {
@@ -93,6 +93,7 @@ export default function navbar({ dropdownContent }) {
                 </li>
               );
             })}
+            </ul>
           <ul tabIndex="0" className="top-12 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             {
               dropdownContent?.map(item=>{
