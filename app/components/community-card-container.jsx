@@ -12,7 +12,7 @@ const CardContainer = ({ communities }) => {
         </h2>
       </div>
       <div className="justify-center p-4 grid grid-cols-3 gap-4">
-        {communities.map((community) => (
+        {communities?.map((community) => (
           <div key={community._id} className="grid grid-cols-3 flex-col">
             <CommunityCard
               title={community.name}
