@@ -109,6 +109,27 @@ export default function page() {
       behavior: 'smooth'
     });
   };
+
+
+
+    
+    
+     
+
+
+    const fetchBuildProfile = async () => {
+      try {
+        const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/build-profile`;
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Failed to fetch communities");
+        }
+        const data = await response.json();
+        setCommunities(data);
+      } catch (error) {
+        console.error("Error fetching communities:", error);
+      }
+  };
   // useEffect(() => {
   //   console.log(profiles);
   // }, [profiles]) 
@@ -330,5 +351,7 @@ export default function page() {
     //   </div>
     //   <button className="btn btn-success w-full max-w-xs self-center" onClick={saveHandler}>Save</button>
     // </div>
-  )
-}
+  );
+};
+
+
