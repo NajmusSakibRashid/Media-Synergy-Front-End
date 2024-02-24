@@ -2,7 +2,7 @@ import User from "@/app/components/user";
 import LeftInfo from "@/app/components/left-info";
 import UpComingContents from "@/app/components/upcoming-contents";
 import CardButton from "@/app/components/card-button";
-import DashBoardStats from '@/app/components/dashboard-stats';
+import DashBoardStats from "@/app/components/dashboard-stats";
 import Acordion from "@/app/components/acordion";
 
 export default function userPage() {
@@ -27,12 +27,12 @@ export default function userPage() {
           <CardButton
             title="Community Suggestions"
             img="https://cdn.pixabay.com/photo/2016/10/18/18/59/community-1751058_640.png"
-            link="/src/pages/build-profile.html"
+            link="/communities"
           />
         </div>
-        <Acordion/>
+        <Acordion />
       </div>
-      <div className='basis-2/12 p-4 flex-grow-0 flex-shrink-0'>
+      <div className="basis-2/12 p-4 flex-grow-0 flex-shrink-0">
         <UpComingContents />
         <DashBoardStats />
         <DashBoardStats />
