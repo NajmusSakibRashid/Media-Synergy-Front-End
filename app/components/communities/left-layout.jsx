@@ -33,7 +33,7 @@ const LeftLayout = () => {
         type="range"
         min={0}
         max="100"
-        value="25"
+        value="50"
         className="range"
         step="25"
       />
