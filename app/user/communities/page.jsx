@@ -13,7 +13,8 @@ const Page = () => {
 
   const fetchCommunities = async () => {
     try {
-      const response = await fetch("http://localhost:3030/communities");
+      const url = `${process.env.NEXT_PUBLIC_BACK_END}/communities`;
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch communities");
       }
