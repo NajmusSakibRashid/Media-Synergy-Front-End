@@ -183,12 +183,8 @@ export default function profilePage({params}) {
               fanViews={`${typeof analytics.data[3].values[0].value === 'number'?analytics.data[3].values[0].value:0}`}
               storyViews={`${typeof analytics.data[4].values[0].value === 'number'?analytics.data[4].values[0].value:0}`}
             />} */}
-            <ContentSectionHeader header="Analytics" />
-            <div className="grid grid-cols-4 gap-4 p-8">
-              <div className="card bg-base-200 rounded-xl">
-                
-              </div>
-            </div>
+            <ContentSectionHeader header="Content Details" />
+            <div className="grid grid-cols-4 gap-4 p-8"></div>
 
           </div>
         </div>

@@ -30,10 +30,6 @@ export default function publishButton({ children,platforms }) {
     fetchData();
   }
   const publish = (e) => {
-    if(!platforms||!platforms.length){
-      alert('Please select at least one platform');
-      return;
-    }
     e.stopPropagation();
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/publish`;
     const token = localStorage.getItem('token');
@@ -55,7 +51,7 @@ export default function publishButton({ children,platforms }) {
         console.log(response);
         children.postIds = [...children.postIds, ...response.postIds];
         updateContent();
-        alert(response.status==='success'?'Published successfully':'Failed to publish');
+        alert(children._id);
       }
       else {
         alert(promise.statusText);

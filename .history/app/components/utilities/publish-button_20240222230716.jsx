@@ -55,7 +55,7 @@ export default function publishButton({ children,platforms }) {
         console.log(response);
         children.postIds = [...children.postIds, ...response.postIds];
         updateContent();
-        alert(response.status==='success'?'Published successfully':'Failed to publish');
+        alert(children._id);
       }
       else {
         alert(promise.statusText);

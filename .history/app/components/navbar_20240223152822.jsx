@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Notification from '@/app/components/notification/notification'
+import Notification from './notification'
 
 export default function navbar({dropdownContent}) {
   return (

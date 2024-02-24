@@ -90,6 +90,7 @@ export default function profilePage({params}) {
         <div className="mid w-8/12 self-center pt-4">
           <div className="card card-bordered bg-base-200 w-full shadow-xl p-4 gap-4">
             <ContentSectionHeader header="Content Details" />
+
             <div className="flex">
               <div className="basis-1/2 flex flex-col justify-around items-center">
                 <div className="relative">
@@ -160,7 +161,7 @@ export default function profilePage({params}) {
               <button onClick={()=>setShow(true)} className="btn btn-primary w-32">Publish</button>
               {show&&<PublishContent show={show} setShow={setShow}>{content}</PublishContent>}
             </div>
-            {/* <ContentSectionHeader header="Content Analytics" />
+            <ContentSectionHeader header="Content Analytics" />
 
             {analytics&&<BarChart
               chartData={[
@@ -177,19 +178,19 @@ export default function profilePage({params}) {
               ]}
             />}
 
+
+            {/* <div className="card-title self-center">Reach</div> */}
+
             {analytics&&reactions&&<AnalyticsTripleReach
               reactionCount={`${toNumber(reactions.anger)+toNumber(reactions.haha)+toNumber(reactions.like)+toNumber(reactions.love)+toNumber(reactions.sorry)+toNumber(reactions.wow)}`}
               postViews={`${typeof analytics.data[1].values[0].value === 'number'?analytics.data[1].values[0].value:0}`}
               fanViews={`${typeof analytics.data[3].values[0].value === 'number'?analytics.data[3].values[0].value:0}`}
               storyViews={`${typeof analytics.data[4].values[0].value === 'number'?analytics.data[4].values[0].value:0}`}
-            />} */}
-            <ContentSectionHeader header="Analytics" />
-            <div className="grid grid-cols-4 gap-4 p-8">
-              <div className="card bg-base-200 rounded-xl">
-                
-              </div>
-            </div>
+            />}
 
+            {/* <canvas id="lineChart"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="../scripts/script.js"></script> */}
           </div>
         </div>
       </div>

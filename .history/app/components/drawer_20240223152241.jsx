@@ -22,7 +22,7 @@ export default function drawer({ children }) {
           [
             { title: 'Dashboard', link: '/user' },
             { title: 'Content', link: '/user' },
-            { title: 'Scheduling', link: '/user/schedules' },
+            { title: 'Scheduling', link: '/user' },
             { title: 'Analytics', link: '/user' },
             { title: 'Community', link: '/user' }
           ]

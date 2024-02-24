@@ -1,10 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import React from 'react'
 
-import PublishContent from '@/app/components/publish-content/publish-content';
+import publishContent from '@/app/components/publish-content/publish-content';
 
-export default function publishButton({ children,platforms }) {
-  const updateContent = () => {
+export default function publishButton({children}) {
+  const updateContent=()=>{
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/${children._id}`;
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
@@ -13,7 +13,7 @@ export default function publishButton({ children,platforms }) {
     const requestOptions = {
       method: 'PUT',
       headers: myHeaders,
-      body: JSON.stringify({
+      body:JSON.stringify({
         ...children,
       })
     };
@@ -29,11 +29,7 @@ export default function publishButton({ children,platforms }) {
     }
     fetchData();
   }
-  const publish = (e) => {
-    if(!platforms||!platforms.length){
-      alert('Please select at least one platform');
-      return;
-    }
+  const publish=(e)=>{
     e.stopPropagation();
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/content/publish`;
     const token = localStorage.getItem('token');
@@ -43,9 +39,9 @@ export default function publishButton({ children,platforms }) {
     const requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify({
-        content: children._id,
-        platforms,
+      body:JSON.stringify({
+        content:children._id,
+        platforms:['facebook','linkedin'],
       })
     };
     const fetchData = async () => {
@@ -53,9 +49,9 @@ export default function publishButton({ children,platforms }) {
       if (promise.status == 200) {
         const response = await promise.json();
         console.log(response);
-        children.postIds = [...children.postIds, ...response.postIds];
+        children.postIds=[...children.postIds,...response.postIds];
         updateContent();
-        alert(response.status==='success'?'Published successfully':'Failed to publish');
+        alert(children._id);
       }
       else {
         alert(promise.statusText);
@@ -63,11 +59,7 @@ export default function publishButton({ children,platforms }) {
     }
     fetchData();
   }
-  useEffect(() => {
-    console.log(platforms);
-  }, [platforms]);
-  return (
-    <>
+  return (<>
       <button onClick={publish} className='btn btn-neutral w-32'>Publish</button>
     </>
   )

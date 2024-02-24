@@ -21,10 +21,10 @@ export default function content({ children }) {
       <div className="card-body overflow-hidden">
         {children.description}
       </div>
-      {/* <div className="card-action p-4 flex justify-center gap-8">
+      <div className="card-action p-4 flex justify-center gap-8">
         <PublishButton>{children}</PublishButton>
         <DeleteButton setShow={setShow}>{children}</DeleteButton>
-      </div> */}
+      </div>
     </div>
   )
 }
