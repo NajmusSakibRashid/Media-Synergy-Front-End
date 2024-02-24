@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftLayout = () => {
+const CommunityFilterSearch = () => {
   return (
     <div className="">
       <h1 className="text-2xl font-bold">
@@ -68,4 +68,4 @@ const LeftLayout = () => {
   );
 };
 
-export default LeftLayout;
+export default CommunityFilterSearch;
