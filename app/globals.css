@@ -30,3 +30,8 @@
   content: url('../public/checkmark.png');
   padding-right: 1em;
 }
+
+.carousel-container {
+  max-height: calc(2 * 400px); /* Adjust the height as needed */
+  overflow-y: auto;
+}
