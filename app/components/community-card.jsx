@@ -1,21 +1,25 @@
-import React from 'react';
+import React from "react";
 
-const CommunityCard = () => {
+const CommunityCard = ({ title, image, description }) => {
   return (
     <div>
-<div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
+      <div className="card card-compact w-64 bg-base-100 shadow-xl border max-h-100">
+        <figure className=" w-full h-auto max-w-full max-h-36">
+          <img src={image} alt="image" className="" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">{title}</h2>
+          <p>{description}</p>
+          <br />
+          <div className="card-actions justify-center">
+            <button className="btn btn-primary italic">
+              Visit this Community
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default CommunityCard;
-

@@ -1,27 +1,17 @@
 import React from "react";
 import CommunityCard from "./community-card"; // Assuming CommunityCard component is in a separate file
 
-const CardContainer = () => {
-  // Dummy data for demonstration
-  const cardsData = [
-    {
-      id: 1,
-      title: "Shoes!",
-      image:
-        "https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg",
-      description: "If a dog chews shoes whose shoes does he choose?",
-    },
-    // Add more card data as needed
-  ];
-
+const CardContainer = ({ communities }) => {
+  const image_url =
+    "https://www.shutterstock.com/image-photo/child-sticks-hand-craftwork-unicorn-260nw-1226446945.jpg";
   return (
-    <div className="flex flex-wrap justify-center">
-      {cardsData.map((card) => (
-        <div key={card.id} className="grid grid-cols-3">
+    <div className="justify-center p-4 grid grid-cols-3 gap-4">
+      {communities.map((community) => (
+        <div key={community._id} className="grid grid-cols-3 flex-col">
           <CommunityCard
-            title={card.title}
-            image={card.image}
-            description={card.description}
+            title={community.name}
+            image={image_url} // Assuming the community object has an image property
+            description={community.tagline} // Assuming the community object has a tagline property
           />
         </div>
       ))}
