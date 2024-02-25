@@ -1,6 +1,10 @@
 import React from "react";
 
-const HeroCommunity = () => {
+const HeroCommunity = ({ scrollToNextSection }) => {
+  const handleGetStartedClick = () => {
+    scrollToNextSection();
+  };
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200 w-full">
@@ -20,7 +24,9 @@ const HeroCommunity = () => {
             <p className="py-6">
               Connect to the best communities you suit. Connect to the best.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary" onClick={handleGetStartedClick}>
+              Get Started
+            </button>
           </div>
         </div>
       </div>

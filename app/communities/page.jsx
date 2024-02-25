@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import HeroCommunity from "@/app/components/hero-community";
 import CommunityCardContainer from "@/app/components/community-card-container";
-import LeftLayout from "@/app/components/communities/left-layout";
+import LeftLayout from "@/app/components/communities/community-filter-search";
+import RightLayout from "@/app/components/communities/community-suggestions";
 
 const Page = () => {
   const [communities, setCommunities] = useState([]);
@@ -25,21 +26,30 @@ const Page = () => {
     }
   };
 
+  const scrollToNextSection = () => {
+    const nextSection = document.getElementById("communityCardContainer");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div>
-      <div className="fixed bottom-0 left-0 top-0 hidden w-1/5 p-5 md:mt-20 lg:flex bg-base-200 rounded-lg">
+      <section className="fixed bottom-0 left-0 top-0 hidden w-1/5 p-5 md:mt-20 lg:flex bg-base-200 rounded-lg scroll-smooth">
         <LeftLayout />
-      </div>
-      <div className="min-h-screen w-full  md:w-4/5 lg:mx-auto lg:w-3/5 rounded-lg">
-        {/* {props.children} */}
-
-        <HeroCommunity />
+      </section>
+      <section className="min-h-screen w-full md:w-4/5 lg:mx-auto lg:w-3/5 rounded-lg">
+        <HeroCommunity scrollToNextSection={scrollToNextSection} />
+      </section>
+      <section
+        id="communityCardContainer"
+        className="min-h-screen w-full md:w-4/5 lg:mx-auto lg:w-3/5 rounded-lg"
+      >
         <CommunityCardContainer communities={communities} />
-      </div>
-      <div className="fixed bottom-0 right-0 top-0 hidden w-1/5 p-5 md:mt-20 md:flex overflow-auto scroll-smooth bg-red-50">
-        {/* {props.right} */}
-        RIGHT
-      </div>
+      </section>
+      <section className="fixed bottom-0 right-0 top-0 hidden w-1/5 p-5 md:mt-20 md:flex overflow-auto scroll-smooth bg-base-200 rounded-lg">
+        <RightLayout />
+      </section>
     </div>
   );
 };
