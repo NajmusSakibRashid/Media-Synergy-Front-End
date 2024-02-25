@@ -64,7 +64,7 @@ export default function navbar({ dropdownContent }) {
       </div>
       <div className="flex-none">
         <div className="flex dropdown dropdown-end items-center gap-4">
-          <Notification />
+          <Notification/>
           <button className="btn btn-square btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,10 +92,10 @@ export default function navbar({ dropdownContent }) {
                 </li>
               );
             })}
-          </ul>
+            </ul>
           <ul tabIndex="0" className="top-12 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             {
-              dropdownContent?.map(item => {
+              dropdownContent?.map(item=>{
                 return <li><Link href={item.link}>{item.title}</Link></li>
               })
             }
