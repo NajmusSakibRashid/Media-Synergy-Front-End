@@ -30,6 +30,12 @@ const CommunityCard = ({ title, image, description }) => {
               Visit this Community
             </button>
           </div>
+
+          <div className="card-actions justify-center">
+            <button className="btn btn-accent italic">
+              Join this Community
+            </button>
+          </div>
         </div>
       </div>
     </div>

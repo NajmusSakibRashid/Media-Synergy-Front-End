@@ -18,6 +18,7 @@ const CardContainer = ({ communities }) => {
               title={community.name}
               image={image_url} // Assuming the community object has an image property
               description={community.tagline} // Assuming the community object has a tagline property
+              params={community}
             />
           </div>
         ))}

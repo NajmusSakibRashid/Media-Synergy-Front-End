@@ -35,3 +35,11 @@
   max-height: calc(2 * 400px); /* Adjust the height as needed */
   overflow-y: auto;
 }
+
+.welcome-message {
+  /* text-align: center; Align the text to the center */
+}
+
+.welcome-message h2 {
+  display: inline; /* Display the heading elements inline */
+}

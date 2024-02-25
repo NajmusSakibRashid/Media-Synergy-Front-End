@@ -18,10 +18,10 @@ export default function drawer({ children }) {
       <DrawerSide>
         {[
           { title: "Dashboard", link: "/user" },
-          { title: "Content", link: "/user/contents" },
+          { title: "Contents", link: "/user/contents" },
           { title: "Scheduling", link: "/user/schedules" },
           { title: "Analytics", link: "/user" },
-          { title: "Community", link: "/communities" },
+          { title: "Communities", link: "/communities" },
         ]}
       </DrawerSide>
     </div>

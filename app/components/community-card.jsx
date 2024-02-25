@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CommunityCard = ({ title, image, description }) => {
+const CommunityCard = ({ title, image, description, params }) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
@@ -25,10 +25,16 @@ const CommunityCard = ({ title, image, description }) => {
             </button>
           )}
           {/* <p>{description}</p> */}
-          <div className="card-actions justify-center">
-            <button className="btn btn-primary italic">
-              Visit this Community
-            </button>
+
+          <div className="flex w-full flex-row justify-center">
+            <div className="card-actions justify-center">
+              <button className="btn btn-primary italic w-20" onClick={() => window.location.href = `/communities/${params._id}`}>Visit</button>
+            </div>
+            <div className="divider divider-horizontal"></div>
+
+            <div className="card-actions justify-center">
+              <button className="btn btn-accent italic w-20">Join</button>
+            </div>
           </div>
         </div>
       </div>
