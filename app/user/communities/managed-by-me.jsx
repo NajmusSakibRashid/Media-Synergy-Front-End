@@ -5,7 +5,7 @@ import Card from "@/app/components/community-card";
 const MyCommunities = () => {
   const [myCommunities, setMyCommunities] = useState([]);
   useEffect(() => {
-    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/my_communities`;
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/managed_by_me`;
     const token = localStorage.getItem("token");
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);

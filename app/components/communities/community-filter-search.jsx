@@ -1,6 +1,16 @@
 import React from "react";
+// import { useHistory } from "react-router-dom";
 
 const CommunityFilterSearch = () => {
+  // Access the history object
+  // const history = useHistory();
+
+  // Handler for creating a community and redirecting to the create community page
+  const handleCreateCommunity = () => {
+    // Redirect to the create community page
+    window.location.href = "/user/create-community";
+  };
+
   return (
     <div className="">
       <h1 className="text-2xl font-bold">
@@ -62,7 +72,13 @@ const CommunityFilterSearch = () => {
           <p>Build Your Own Community?</p>
         </h1>
         <br />
-        <button className="btn btn-primary italic">Create Community</button>
+        {/* Call the handleCreateCommunity function when the button is clicked */}
+        <button
+          className="btn btn-primary italic"
+          onClick={handleCreateCommunity}
+        >
+          Create Community
+        </button>
       </div>
     </div>
   );

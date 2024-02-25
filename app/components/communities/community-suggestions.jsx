@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "@/app/components/community-card";
+import Card from "./community-cards-large";
 
 const CommunitieSuggestions = () => {
   // Dummy data for demonstration

@@ -9,14 +9,14 @@ const CommunityCard = ({ title, image, description }) => {
 
   return (
     <div>
-      <div className="card card-compact w-64 bg-base-100 shadow-xl border h-80 mb-2 ms-2">
-        <figure className="w-full max-w-full h-36">
+      <div className="card card-compact w-64 bg-base-100 shadow-xl border h-auto mb-2 ms-2">
+        <figure className="w-full max-w-full h-auto min-h-36">
           <img src={image} alt="image" className="" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{showMore ? description : description.slice(0, 30)}</p>
-          {description.length > 30 && (
+          <p>{showMore ? description : description.slice(0, 100)}</p>
+          {description.length > 100 && (
             <button
               onClick={toggleShowMore}
               className="text-blue-500 hover:underline"
