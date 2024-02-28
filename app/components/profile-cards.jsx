@@ -14,7 +14,7 @@ export default function ProfileCards({children}) {
           <button
             className="btn btn-primary"
             onClick={() => {
-              window.location.href = '/'
+              window.location.href = `/user/profiles/${children._id}`
             }}
           >
             Visit Profile
