@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import ProfileCardContainer from "@/app/components/profile-card-container";
 import CardButtonContentContainer from "@/app/components/card-button-content-container";
+import CommunityContainer from "@/app/components/card-button-community-container";
 
 export default function acordion() {
   const [radio, setRadio] = useState("profiles");
@@ -65,6 +66,7 @@ export default function acordion() {
           Your Communities
         </div>
         <div className="collapse-content flex flex-col items-center">
+          <CommunityContainer />
           <button
             onClick={() => (window.location.href = "/user/communities")}
             className="btn btn-neutral"

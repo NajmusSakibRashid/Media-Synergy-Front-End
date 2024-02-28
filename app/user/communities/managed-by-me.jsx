@@ -40,6 +40,7 @@ const MyCommunities = () => {
         }
         const data = await response.json();
         setUserId(data.userId);
+        console.log("User ID:", data.userId);
       } catch (error) {
         console.error("Error fetching user ID:", error);
       } finally {
@@ -62,12 +63,14 @@ const MyCommunities = () => {
                 image="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tbXVuaXR5fGVufDB8fDB8fHww"
                 description={community.tagline}
                 uid={userId}
+                params={community}
               />
               {}
             </div>
           ))}
         </div>
       </div>
+      {/* {userId} */}
     </div>
   );
 };

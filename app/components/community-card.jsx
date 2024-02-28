@@ -11,6 +11,12 @@ const CommunityCard = ({ title, image, description, params, uid }) => {
   const isUserInCommunity =
     params && params.users && params.users.includes(uid);
 
+  const isUserAdmin = params && params.admin && params.admin == uid;
+
+  const leaveHandle = async () => {};
+
+  const deleteHandle = async () => {};
+
   const joinHandle = async () => {
     try {
       const url = `${process.env.NEXT_PUBLIC_BACK_END}/communities/join/${params._id}/${uid}`;
@@ -80,11 +86,16 @@ const CommunityCard = ({ title, image, description, params, uid }) => {
             <div className="card-actions justify-center">
               {!isUserInCommunity ? (
                 <button className="btn btn-accent w-20" onClick={joinHandle}>
-                  {" "}
-                  Join{" "}
+                  Join
+                </button>
+              ) : isUserAdmin ? (
+                <button className="btn btn-error w-20" onClick={deleteHandle}>
+                  Delete
                 </button>
               ) : (
-                <button className="btn btn-error w-20"> Leave </button>
+                <button className="btn btn-error w-20" onClick={leaveHandle}>
+                  Leave
+                </button>
               )}
             </div>
           </div>
