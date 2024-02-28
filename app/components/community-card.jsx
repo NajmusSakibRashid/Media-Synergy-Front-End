@@ -1,10 +1,42 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
-const CommunityCard = ({ title, image, description, params }) => {
+const CommunityCard = ({ title, image, description, params, uid }) => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
+  };
+
+  const isUserInCommunity =
+    params && params.users && params.users.includes(uid);
+
+  const joinHandle = async () => {
+    try {
+      const url = `${process.env.NEXT_PUBLIC_BACK_END}/communities/join/${params._id}/${uid}`;
+      console.log(url);
+      const token = localStorage.getItem("token");
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${token}`);
+      myHeaders.append("Content-Type", "application/json");
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+      };
+
+      const promise = await fetch(url, requestOptions);
+      console.log(promise);
+      if (promise.status == 200) {
+        alert("Joined Community Successfully");
+      } else {
+        alert(promise.statusText);
+      }
+
+      // redirect to the community page
+      window.location.href = `/communities`;
+    } catch (error) {
+      console.error("Error joining community:", error);
+    }
   };
 
   return (
@@ -15,25 +47,45 @@ const CommunityCard = ({ title, image, description, params }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{showMore ? description : description.slice(0, 30)}</p>
-          {description.length > 30 && (
-            <button
-              onClick={toggleShowMore}
-              className="text-blue-500 hover:underline"
-            >
-              {showMore ? "See Less" : "See More"}
-            </button>
+
+          {description && (
+            <div className="text-center text-xs">
+              <p>{showMore ? description : description.slice(0, 30)}</p>
+              {description.length > 30 && (
+                <button
+                  onClick={toggleShowMore}
+                  className="text-blue-500 hover:underline"
+                >
+                  {showMore ? "See Less" : "See More"}
+                </button>
+              )}
+            </div>
           )}
+
           {/* <p>{description}</p> */}
 
           <div className="flex w-full flex-row justify-center">
             <div className="card-actions justify-center">
-              <button className="btn btn-primary italic w-20" onClick={() => window.location.href = `/communities/${params._id}`}>Visit</button>
+              <button
+                className="btn btn-primary italic w-20"
+                onClick={() =>
+                  (window.location.href = `/communities/${params._id}`)
+                }
+              >
+                Visit
+              </button>
             </div>
             <div className="divider divider-horizontal"></div>
 
             <div className="card-actions justify-center">
-              <button className="btn btn-accent italic w-20">Join</button>
+              {!isUserInCommunity ? (
+                <button className="btn btn-accent w-20" onClick={joinHandle}>
+                  {" "}
+                  Join{" "}
+                </button>
+              ) : (
+                <button className="btn btn-error w-20"> Leave </button>
+              )}
             </div>
           </div>
         </div>
