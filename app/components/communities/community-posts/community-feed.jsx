@@ -4,7 +4,9 @@ import CommunityPostCardFeed from "./community-post-card-feed"; // Importing the
 const PostList = ({ posts }) => {
   return (
     <div>
-      <p>Posts: {posts && posts.length}</p>
+      <p className="text-3xl font-semibold bg-base-200 p-4 ml-1 rounded-lg mb-2 mt-2">
+        Posts: {posts && posts.length}
+      </p>
       <ul>
         {posts && posts.length > 0 ? (
           posts.map((post) => (

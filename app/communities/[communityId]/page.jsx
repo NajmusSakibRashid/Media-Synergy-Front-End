@@ -292,7 +292,16 @@ const CommunityPage = ({ params }) => {
           </div> */}
           {/* <button className="btn-primary btn mb-2"> </button> */}
           {isUserInCommunity && (
-            <CreateCommunityPost communityId={params.communityId} />
+            <div className="collapse bg-base-200">
+              <input type="checkbox" />
+              <div className="collapse-title text-3xl font-semibold ">
+                Create a Post?
+              </div>
+              <div className="collapse-content">
+                <CreateCommunityPost communityId={params.communityId} />{" "}
+              </div>
+            </div>
+            // <CreateCommunityPost communityId={params.communityId} />
           )}
         </div>
         {/* <p>Admin ID: {admin}</p>
