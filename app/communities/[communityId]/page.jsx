@@ -252,7 +252,9 @@ const CommunityPage = ({ params }) => {
             </ul>
           </div> */}
           {/* <button className="btn-primary btn mb-2"> </button> */}
-          {/* <CreateCommunityPost /> */}
+          <CreateCommunityPost 
+            communityId={params.communityId}
+          />
         </div>
         {/* <p>Admin ID: {admin}</p>
         <p>Users:</p>

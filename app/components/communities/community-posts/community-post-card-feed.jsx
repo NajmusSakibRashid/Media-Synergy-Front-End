@@ -27,10 +27,23 @@ const CommunityPostCardFeed = ({ post }) => {
             {post.comments.length !== 1 ? "comments" : "comment"}{" "}
             {/* Conditional rendering based on the number of comments */}
           </div>
-        
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">View Detailed</button>
+
+          <div>
+            <textarea
+              className="textarea textarea-primary w-3/5 m-2 h-12"
+              placeholder="write comment ..."
+            >
+              Comment Here
+            </textarea>
+            <button className="btn btn-primary w-1/6 align-top m-2 h-12">
+              Comment
+            </button>
+            <button className="btn btn-primary w-1/6 align-top m-2 h-12">
+              View Detailed
+            </button>
           </div>
+
+          <div className="card-actions justify-end"></div>
         </div>
       </div>
     </div>
