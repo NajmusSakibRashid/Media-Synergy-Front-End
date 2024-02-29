@@ -145,7 +145,6 @@ const CommunityPage = ({ params }) => {
     }
   };
 
-
   const handleLike = async () => {
     try {
       // Make a request to the backend to update the like count
@@ -200,9 +199,15 @@ const CommunityPage = ({ params }) => {
                 View Posts
               </button>
               {!isUserInCommunity ? (
-                <button className="btn btn-accent" onClick={joinActions}> Join Community </button>
+                <button className="btn btn-accent" onClick={joinActions}>
+                  {" "}
+                  Join Community{" "}
+                </button>
               ) : (
-                <button className="btn btn-error" onClick={leaveActions}> Leave Community </button>
+                <button className="btn btn-error" onClick={leaveActions}>
+                  {" "}
+                  Leave Community{" "}
+                </button>
               )}
             </div>
           </div>

@@ -58,9 +58,12 @@ const CardButtonCommunityContainer = () => {
     fetchUserId();
   }, []);
 
+  const visibleCommunities = myCommunities.slice(0, 5);
+  const remainingCommunities = myCommunities.slice(5);
+
   return (
     <div className="container flex-col grid grid-cols-3">
-      {myCommunities.map((community, index) => (
+      {visibleCommunities.map((community, index) => (
         <div key={index} className="">
           <CommunityCard
             className="border-none"
@@ -70,9 +73,22 @@ const CardButtonCommunityContainer = () => {
             params={community}
             uid={userId}
           />
-          {}
         </div>
       ))}
+      {remainingCommunities.length > 0 && (
+        <div className="">
+          <CommunityCard
+            className="border-none opacity-30"
+            title={`${remainingCommunities[0].name} and ${
+              remainingCommunities.length - 1
+            } more`}
+            image="https://img.freepik.com/free-vector/flat-international-human-solidarity-day-illustration_23-2149844029.jpg"
+            description="See all communities you are part of"
+            params={remainingCommunities}
+            uid={userId}
+          />
+        </div>
+      )}
     </div>
   );
 };
