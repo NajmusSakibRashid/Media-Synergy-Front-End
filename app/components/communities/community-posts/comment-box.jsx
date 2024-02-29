@@ -43,7 +43,7 @@ const CommentBox = ({ postId }) => {
           {comments.map((comment) => (
             <SingleComment
               key={comment._id}
-              username={comment.commenter}
+              userId={comment.commenter}
               text={comment.text}
             />
           ))}
