@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 // import { useHistory } from "react-router-dom";
-import { useEffect, useState } from 'react';
-
-  
+import { useEffect, useState } from "react";
 
 const CommunityFilterSearch = () => {
   // Access the history object
@@ -91,7 +89,7 @@ const CommunityFilterSearch = () => {
           className="btn btn-primary italic"
           onClick={() => (window.location.href = "/communities")}
         >
-          <h1 className="text-2xl font-bold">All Communities</h1>
+          <h1 className="">All Communities</h1>
         </button>
       )}
 

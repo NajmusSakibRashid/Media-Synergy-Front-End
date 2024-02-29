@@ -7,10 +7,13 @@ import PostCard from "@/app/components/communities/community-posts/community-pos
 import Feed from "@/app/components/communities/community-posts/community-feed";
 import CommunityFilterSearch from "@/app/components/communities/community-filter-search";
 import { useRef } from "react";
+import ConfirmationPopup from "@/app/components/confirmation-popup";
 
 const CommunityPage = ({ params }) => {
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // const [showPopup, setShowPopup] = useState(false);
 
   const feedSectionRef = useRef(null);
   const [community, setCommunity] = useState(null);
@@ -168,6 +171,26 @@ const CommunityPage = ({ params }) => {
       console.error("Error handling like:", error);
     }
   };
+  const confirmDialogStyle = {
+    fontSize: "16px",
+    color: "red",
+    backgroundColor: "lightgray",
+    border: "1px solid darkgray",
+    borderRadius: "5px",
+    padding: "10px",
+  };
+
+  const deleteActions = async () => {
+    // setShowPopup(true);
+    const result = window.confirm("Are you sure you want to proceed?");
+    if (result) {
+      // Code to execute if the user clicks "OK"
+      console.log("User clicked OK");
+    } else {
+      // Code to execute if the user clicks "Cancel" or closes the dialog
+      console.log("User cancelled");
+    }
+  };
 
   const { name, tagline, admin, users, posts } = community || {};
   const { title, content, communityOfPost, author, comments, likes, date } =
@@ -176,8 +199,11 @@ const CommunityPage = ({ params }) => {
   const isUserInCommunity =
     community && community.users && community.users.includes(userId);
 
+  const isUserAdmin =
+    community && community.admin && community.admin === userId;
+
   return (
-    <div>
+    <div className={confirmDialogStyle}>
       <div className="fixed bottom-0 left-0 top-0 hidden w-1/5 p-5 md:mt-20 lg:flex">
         <CommunityFilterSearch />
       </div>
@@ -200,15 +226,28 @@ const CommunityPage = ({ params }) => {
               </button>
               {!isUserInCommunity ? (
                 <button className="btn btn-accent" onClick={joinActions}>
-                  {" "}
-                  Join Community{" "}
+                  Join Community
                 </button>
               ) : (
-                <button className="btn btn-error" onClick={leaveActions}>
-                  {" "}
-                  Leave Community{" "}
-                </button>
+                <>
+                  {isUserAdmin ? (
+                    <button className="btn btn-error" onClick={deleteActions}>
+                      Delete Community
+                    </button>
+                  ) : (
+                    <button className="btn btn-error" onClick={leaveActions}>
+                      Leave Community
+                    </button>
+                  )}
+                </>
               )}
+              {/* {showPopup && (
+                <ConfirmationPopup
+                  message="Are you sure you want to proceed?"
+                  // onConfirm={handleConfirm}
+                  // onCancel={handleCancel}
+                />
+              )} */}
             </div>
           </div>
         </div>
@@ -252,9 +291,9 @@ const CommunityPage = ({ params }) => {
             </ul>
           </div> */}
           {/* <button className="btn-primary btn mb-2"> </button> */}
-          <CreateCommunityPost 
-            communityId={params.communityId}
-          />
+          {isUserInCommunity && (
+            <CreateCommunityPost communityId={params.communityId} />
+          )}
         </div>
         {/* <p>Admin ID: {admin}</p>
         <p>Users:</p>
