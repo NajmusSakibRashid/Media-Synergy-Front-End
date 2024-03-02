@@ -12,6 +12,7 @@ export default function userPage() {
 
   useEffect(() => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/fetch-profile`;
+    
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
