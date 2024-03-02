@@ -39,6 +39,25 @@ const CommunityCard = ({ title, image, description, params, uid }) => {
 
   const deleteHandle = async () => {
     // Add logic to handle deleting community
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/${params._id}`;
+    const token = localStorage.getItem("token");
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+    const requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+    };
+    const fetchData = async () => {
+      const promise = await fetch(url, requestOptions);
+      if (promise.status == 200) {
+        alert("Community deleted successfully");
+        window.location.href = "/user/communities";
+      } else {
+        alert(promise.statusText);
+      }
+    };
+    fetchData();
   };
 
   const joinHandle = async () => {
