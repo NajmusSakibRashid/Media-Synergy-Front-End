@@ -8,6 +8,29 @@ export default function ProfileCards({children}) {
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
+
+  const deleteProfile = async (id) => {
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/profile/${id}`;
+    const token = localStorage.getItem('token');
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    const requestOptions = {
+      method: 'DELETE',
+      headers: myHeaders,
+    };
+    const deleteData = async () => {
+      const promise = await fetch(url, requestOptions);
+      if (promise.status == 200) {
+        const response = await promise.json();
+        alert('Profile Deleted');
+        console.log(response);
+      }
+      else {
+        alert(promise.statusText);
+      }
+    };
+    deleteData();
+  }
   return (
     <div className="card card-compact w-64 bg-base-100 shadow-xl border h-auto mb-2 ms-2">
       <figure className="w-full max-w-full h-auto min-h-36">
@@ -30,12 +53,21 @@ export default function ProfileCards({children}) {
               window.location.href = `/user/profiles/${children._id}`
             }}
           >
-            Visit Profile
+            Visit 
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              window.location.href = `/user/profiles/`
+              deleteProfile(children._id);
+            }}
+          >
+            Delete 
           </button>
         </div>
       </div>
     </div>
   );
 
-  
+
 }

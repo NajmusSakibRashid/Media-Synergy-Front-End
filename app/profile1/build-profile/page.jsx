@@ -69,7 +69,16 @@ export default function page() {
   };
 
   const handleLogoImageChange = (e) => {
-    setLogo(e.target.files[0]);
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.oload = (e) => {
+      const base64 = e.target.result;
+      setLogo(base64);
+    }
+    // setLogo(e.target.files[0]);
   };
 
   const handleAwardsImageChange = (e) => {
@@ -248,9 +257,10 @@ export default function page() {
             <input
               type="file"
               // value={logo}
-              // onChange={handleLogoImageChange}
+              onChange={(e) => uploadMedia(e.target.files[0])}
               className="file-input file-input-bordered w-full max-w-xs"
             />
+            
             <div className="w-full max-w-xs">
               <label className="label card-title">Company Name</label>
               <input
