@@ -6,9 +6,9 @@ import ProfileCardContainer from "@/app/components/profile-card-container";
 import ProfileCardDetails from "@/app/components/card-profile-details";
 
 function ProfileDetails({ params }) {
-    const [profiles, setProfiles] = useState({});
+    const [profile, setProfile] = useState({});
     useEffect(() => {
-        const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/fetch-profile`;
+        const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/profile/${params.profileId}`;
         const token = localStorage.getItem('token');
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${token}`);
@@ -20,9 +20,9 @@ function ProfileDetails({ params }) {
             const promise = await fetch(url, requestOptions);
             if (promise.status == 200) {
                 const response = await promise.json();
-                setProfiles(response);
+                setProfile(response);
                 console.log(response);
-                console.log('profile', profiles)
+                console.log('profile', profile)
             }
             else {
                 alert(promise.statusText);
@@ -36,7 +36,7 @@ function ProfileDetails({ params }) {
   return (
     <div>
         {/* <ProfileCardContainer /> */}
-        <ProfileCardDetails profiles={profiles} />
+        <ProfileCardDetails profile={profile} />
     </div>
   );
 }
