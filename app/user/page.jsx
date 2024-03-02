@@ -46,7 +46,7 @@ export default function userPage() {
           <CardButton
             title="Build Profile"
             img="https://static.vecteezy.com/system/resources/previews/010/336/740/original/construction-icon-isolated-on-transparent-background-png.png"
-            link="/profile/build-profile"
+            link="/profile1/build-profile"
           />
           <CardButton
             title="Create Content"
