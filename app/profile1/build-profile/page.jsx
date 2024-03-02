@@ -23,11 +23,14 @@ export default function page() {
   const [awards, setAwards] = useState([]);
   const [history, setHistory] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
+  const [image, setImage] = useState('');
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/profile`;
+    const media = image?[await uploadMedia(image)]:[''];
+
     const token = localStorage.getItem('token');
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -38,6 +41,7 @@ export default function page() {
       body: JSON.stringify({
         logo,
         name,
+        image: media,
         slogan,
         aboutUs,
         goal,
@@ -60,7 +64,7 @@ export default function page() {
         throw new Error("Failed to create profile");
       }
       alert("Profile created successfully");
-      window.location.href = "/user/profiles";
+      window.location.href = "/user/";
     } catch (error) {
       console.error("Error creating profile:", error);
       alert("Error creating profile");
@@ -74,7 +78,7 @@ export default function page() {
 
     const reader = new FileReader();
 
-    reader.oload = (e) => {
+    reader.onload = (e) => {
       const base64 = e.target.result;
       setLogo(base64);
     }
@@ -193,9 +197,9 @@ export default function page() {
   //   console.log(profiles);
   // }, [profiles]) 
   return (
-    <div class="mt-16 p-4 flex flex-col items-center gap-4">
+    <div className="mt-16 p-4 flex flex-col items-center gap-4">
       <div className="card-title">
-        <h1>Build Profile</h1>
+        <h1><b>Build Profile</b></h1>
       </div>
 
       {/* <ul className="steps w-full max-w-xl">
@@ -207,17 +211,17 @@ export default function page() {
       </ul> */}
 
 
-      <ul className="steps w-full max-w-xl">
+      {/* <ul className="steps w-full max-w-xl">
         <li className="step step-neutral">Profile</li>
         <li className="step">Intro</li>
         <li className="step">Contact</li>
         <li className="step">Product/Consumer</li>
         <li className="step">Awards</li>
-      </ul>
+      </ul> */}
 
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}  >
 
-      <div role="tablist" className="tabs tabs-boxed w-1/2">
+      {/* <div role="tablist" className="tabs tabs-boxed w-1/2"> */}
         {/* <div
           role="tabpanel"
           className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${currentTab === 0 ? "block" : "hidden"
@@ -225,18 +229,18 @@ export default function page() {
         > */}
         {/* Content for the first tab */}
 
-        <input
+        {/* <input
           type="radio"
           name="my_tabs_2"
           role="tab"
           className="tab hidden"
           id="Profile"
           checked
-        />
-        <div
+        /> */}
+        {/* <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-        >
+        > */}
           <div className="flex flex-col gap-4 items-center">
             <div className="avatar">
               <div className="w-64 rounded-full">
@@ -254,12 +258,28 @@ export default function page() {
               className="range range-xs w-2/4"
             />
             <label className="label card-title">Upload Logo</label>
-            <input
+            {/* <input
               type="file"
               // value={logo}
               onChange={(e) => uploadMedia(e.target.files[0])}
               className="file-input file-input-bordered w-full max-w-xs"
-            />
+              required
+            /> */}
+            {
+              image ? (
+                <img 
+                  src={URL.createObjectURL(image)}
+                  alt='Logo'
+                  className="rounded-lg"
+                  />
+              ) : null
+            }
+            <input 
+              onChange={(e) => {setImage(e.target.files[0]);}}
+              name="media"
+              type="file"
+              className="file-input file-input-bordered w-full"
+              />
             
             <div className="w-full max-w-xs">
               <label className="label card-title">Company Name</label>
@@ -269,6 +289,7 @@ export default function page() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input input-bordered w-full"
+                required
               />
               <label for="slogan" className="label card-title">
                 Slogan
@@ -279,14 +300,15 @@ export default function page() {
                 value={slogan}
                 onChange={(e) => setSlogan(e.target.value)}
                 className="input input-bordered w-full"
+                required
               />
             </div>
-            <div className="flex justify-between w-full max-w-xs">
+            {/* <div className="flex justify-between w-full max-w-xs">
               <button className="btn btn-neutral input-bordered min-w-[8rem]" disabled>Prev</button>
               <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => next(0)}>Next</button>
-            </div>
+            </div> */}
           </div>
-        </div>
+        {/* </div> */}
         {/* </div> */}
 
 
@@ -296,11 +318,11 @@ export default function page() {
           className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${currentTab === 1 ? "block" : "hidden"
             }`}
         > */}
-        <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Intro" />
-        <div
+        {/* <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Intro" /> */}
+        {/* <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-        >
+        > */}
           <div className="flex flex-col items-center">
             <div className="w-full max-w-xs">
               <label className="label card-title">About Us</label>
@@ -309,6 +331,7 @@ export default function page() {
               placeholder='Enter About Us'
               value={aboutUs}
               onChange={(e) => setAboutUs(e.target.value)}
+              required
               ></textarea>
               <label className="label card-title">Goal</label>
               <textarea 
@@ -316,16 +339,17 @@ export default function page() {
               placeholder='Enter Goal'
               value={goal}
               onChange={(e) => setGoal(e.target.value)}
+              required
               >
 
               </textarea>
             </div>
-            <div className="flex justify-between w-full max-w-xs">
+            {/* <div className="flex justify-between w-full max-w-xs">
               <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => prev(1)}>Prev</button>
               <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => next(1)}>Next</button>
-            </div>
+            </div> */}
           </div>
-        </div>
+        {/* </div> */}
         {/* </div> */}
 
         {/* <div
@@ -333,11 +357,11 @@ export default function page() {
           className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${currentTab === 2 ? "block" : "hidden"
             }`}
         > */}
-        <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Contact" />
-        <div
+        {/* <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Contact" /> */}
+        {/* <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-        >
+        > */}
           <div className="flex flex-col items-center">
             <div className="card p-4 gap-4 w-full max-w-xs">
               <div className="card-title self-center">
@@ -354,6 +378,7 @@ export default function page() {
                   placeholder='Enter Physical Address'
                   value={physicalAddress}
                   onChange={(e) => setPhysicalAddress(e.target.value)}
+                  required
                 />
                 <label for="phone-number" className="label">
                   Phone Number:
@@ -366,6 +391,7 @@ export default function page() {
                     placeholder='Enter Phone Number'
                     value={phoneNumbers[0]}
                     onChange={(e) => setPhoneNumbers([e.target.value, phoneNumbers[1], phoneNumbers[2]])}
+                    required
                   />
                   <button className="btn btn-neutral">Delete</button>
                 </div>
@@ -377,6 +403,7 @@ export default function page() {
                     placeholder='Enter Phone Number'
                     value={phoneNumbers[1]}
                     onChange={(e) => setPhoneNumbers([phoneNumbers[0], e.target.value, phoneNumbers[2]])}
+                    required
                   />
                   <button className="btn btn-neutral">Delete</button>
                 </div>
@@ -399,6 +426,7 @@ export default function page() {
                   placeholder='Enter Email Address'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
                 <label for="website" className="label">
                   Website
@@ -475,14 +503,14 @@ export default function page() {
                   <button className="btn btn-neutral">Delete</button>
                 </div>
                 <button className="btn btn-neutral">Add More</button>
-                <div className="flex justify-between w-full max-w-xs">
+                {/* <div className="flex justify-between w-full max-w-xs">
                   <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => prev(2)}>Prev</button>
                   <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => next(2)}>Next</button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
         {/* </div> */}
 
         {/* <div
@@ -490,11 +518,11 @@ export default function page() {
           className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${currentTab === 3 ? "block" : "hidden"
             }`}
         > */}
-        <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Product/Consumer" />
-        <div
+        {/* <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Product/Consumer" /> */}
+        {/* <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-        >
+        > */}
           <div className="flex flex-col items-center gap-4">
             <div className="grid grid-cols-2 w-8/12 gap-4">
               <div className="card-title border-solid border-2 p-4 rounded-xl">
@@ -552,12 +580,12 @@ export default function page() {
             </div>
             <button className="btn btn-neutral">Add More</button>
 
-            <div className="flex justify-between w-full max-w-xs">
+            {/* <div className="flex justify-between w-full max-w-xs">
               <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => prev(3)}>Prev</button>
               <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => next(3)}>Next</button>
-            </div>
+            </div> */}
           </div>
-        </div>
+        {/* </div> */}
         {/* </div> */}
 
         {/* <div
@@ -565,11 +593,11 @@ export default function page() {
           className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${currentTab === 4 ? "block" : "hidden"
             }`}
         > */}
-        <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Awards" />
-        <div
+        {/* <input type="radio" name="my_tabs_2" role="tab" className="tab hidden" id="Awards" /> */}
+        {/* <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
-        >
+        > */}
           <div className="flex flex-col items-center">
             <div className="card gap-4 p-4 w-full max-w-xs">
               <div className="card-title self-center">
@@ -594,14 +622,17 @@ export default function page() {
 
               ></textarea>
               <button className="btn btn-neutral">Add More</button>
-              <div className="flex justify-between w-full max-w-xs">
+              {/* <div className="flex justify-between w-full max-w-xs">
                 <button className="btn btn-neutral input-bordered min-w-[8rem]" onClick={() => prev(4)}>Prev</button>
-                <button className="btn btn-neutral min-w-[4rem]" onClick={() => window.location.href='/src/pages/profile.html'}>Done</button>
-              </div>
+                <button type="submit" className="btn btn-neutral min-w-[4rem]" onClick={() => window.location.href='/user/'}>Done</button>
+              </div> */}
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
+      <button type="submit" className="btn btn-primary mt-4">
+              Create Profile
+            </button>
       </form>
 
     </div>

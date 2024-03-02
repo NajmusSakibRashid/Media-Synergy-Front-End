@@ -25,6 +25,17 @@ export default function profileCardContainer() {
     }
     fetchData();
   }, []);
-  return profiles?.map(profile => <ProfileCards>{profile}</ProfileCards>)
+  return(
+    <div className="justify-center p-4 grid grid-cols-3 gap-4">
+      {profiles?.map((profile) => (
+        <div key={profile._id} className="grid grid-cols-3 flex-col">
+          <ProfileCards>{profile}</ProfileCards>
+        </div>
 
-}
+      ))}
+    </div>
+
+  ); 
+};
+  
+  
