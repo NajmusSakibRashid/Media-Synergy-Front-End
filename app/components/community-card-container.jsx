@@ -36,7 +36,7 @@ const CardContainer = ({ communities }) => {
 
 
   const image_url =
-    "https://www.shutterstock.com/image-photo/child-sticks-hand-craftwork-unicorn-260nw-1226446945.jpg";
+    "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29tbXVuaXR5fGVufDB8fDB8fHww";
   return (
     <div>
       <div>

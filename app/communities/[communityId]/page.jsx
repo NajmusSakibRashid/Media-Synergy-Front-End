@@ -80,6 +80,12 @@ const CommunityPage = ({ params }) => {
           }
           const allPostsData = await allPostsResponse.json();
           setAllPosts(allPostsData);
+
+          // Sort posts by date, latest first
+          allPostsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+          // Set the state with sorted posts
+          setAllPosts(allPostsData);
         } else {
           console.log("No posts in this community");
         }
@@ -103,6 +109,10 @@ const CommunityPage = ({ params }) => {
     fetchUserId();
     fetchCommunity();
   }, [params.communityId]);
+
+  const manageCommunities = async () => {
+    window.location.href = "/user/communities";
+  };
 
   const joinActions = async () => {
     try {
@@ -183,12 +193,36 @@ const CommunityPage = ({ params }) => {
     padding: "10px",
   };
 
+  const deleteHandle = async () => {
+    // Add logic to handle deleting community
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/${params._id}`;
+    const token = localStorage.getItem("token");
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+    const requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+    };
+    const fetchData = async () => {
+      const promise = await fetch(url, requestOptions);
+      if (promise.status == 200) {
+        alert("Community deleted successfully");
+        window.location.href = "/user/communities";
+      } else {
+        alert(promise.statusText);
+      }
+    };
+    fetchData();
+  };
+
   const deleteActions = async () => {
     // setShowPopup(true);
     const result = window.confirm("Are you sure you want to proceed?");
     if (result) {
       // Code to execute if the user clicks "OK"
       console.log("User clicked OK");
+      deleteHandle();
     } else {
       // Code to execute if the user clicks "Cancel" or closes the dialog
       console.log("User cancelled");
@@ -254,8 +288,11 @@ const CommunityPage = ({ params }) => {
               ) : (
                 <>
                   {isUserAdmin ? (
-                    <button className="btn btn-error" onClick={deleteActions}>
-                      Delete Community
+                    <button
+                      className="btn btn-ghost border-primary text-primary"
+                      onClick={manageCommunities}
+                    >
+                      Manage My Communities
                     </button>
                   ) : (
                     <button className="btn btn-error" onClick={leaveActions}>

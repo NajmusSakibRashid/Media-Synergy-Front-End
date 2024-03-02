@@ -8,10 +8,11 @@ import CommunityFilterSearch from "@/app/components/communities/community-filter
 import RightLayout from "@/app/components/communities/community-suggestions";
 import MyCommunities from "./my-communities";
 import ManagedByMe from "./managed-by-me";
+import CommunitieSuggestions from "@/app/components/communities/community-suggestions";
 
 const Page = () => {
   return (
-    <div>
+    <div className="scroll-smooth">
       <div className="fixed bottom-0 left-0 top-0 hidden w-1/5 p-5 md:mt-20 lg:flex">
         <CommunityFilterSearch />
       </div>
@@ -26,7 +27,7 @@ const Page = () => {
         <ManagedByMe />
       </div>
       <div className="fixed bottom-0 right-0 top-0 hidden w-1/5 p-5 md:mt-20 md:flex overflow-auto scroll-smooth">
-        bye
+        <CommunitieSuggestions />
       </div>
     </div>
   );
