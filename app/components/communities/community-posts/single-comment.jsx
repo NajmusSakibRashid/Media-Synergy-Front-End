@@ -1,8 +1,28 @@
 import React, { useState, useEffect } from "react";
 
-const SingleComment = ({ userId, text }) => {
+const SingleComment = ({ userId, text, date }) => {
   const [author, setAuthor] = useState(null); // Initialize username as an empty string
   const [loading, setLoading] = useState(true); // Add loading state to handle fetching username
+
+  const calculateTimeDifference = (dateString) => {
+    const postDate = new Date(dateString);
+    const currentDate = new Date();
+    const timeDifference = Math.abs(currentDate - postDate);
+
+    // Convert time difference to minutes, hours, or days as appropriate
+    if (timeDifference < 60000) {
+      return "Just now";
+    } else if (timeDifference < 3600000) {
+      const minutes = Math.floor(timeDifference / 60000);
+      return `${minutes} minute${minutes !== 1 ? "s" : ""} ago`;
+    } else if (timeDifference < 86400000) {
+      const hours = Math.floor(timeDifference / 3600000);
+      return `${hours} hour${hours !== 1 ? "s" : ""} ago`;
+    } else {
+      const days = Math.floor(timeDifference / 86400000);
+      return `${days} day${days !== 1 ? "s" : ""} ago`;
+    }
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,7 +57,6 @@ const SingleComment = ({ userId, text }) => {
   //   return <div>Loading username...</div>;
   // }
 
-
   return (
     <div className="border border-primary rounded-lg mb-2 p-2 flex items-center">
       <svg
@@ -60,9 +79,26 @@ const SingleComment = ({ userId, text }) => {
       </svg>
 
       <div>
-        <h1 className="font-bold text-primary">{author && author.name}</h1>{" "}
+        <div className="">
+          <h1 className="font-bold text-primary">{author && author.name}</h1>{" "}
+        </div>
         {/* Render username directly */}
         <h1 className="font-semibold">{text}</h1>
+        <div className="flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            data-name="Layer 1"
+            viewBox="0 0 24 24"
+            id="clock"
+            width="20"
+            height="20"
+            stroke="white"
+            className="mr-1 justify-center"
+          >
+            <path d="M12,6a.99974.99974,0,0,0-1,1v4.38379L8.56934,12.60693a.99968.99968,0,1,0,.89843,1.78614l2.98145-1.5A.99874.99874,0,0,0,13,12V7A.99974.99974,0,0,0,12,6Zm0-4A10,10,0,1,0,22,12,10.01146,10.01146,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Z"></path>
+          </svg>
+          <p>{calculateTimeDifference(date)}</p>
+        </div>
       </div>
     </div>
   );
