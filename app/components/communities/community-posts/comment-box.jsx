@@ -45,6 +45,7 @@ const CommentBox = ({ postId }) => {
               key={comment._id}
               userId={comment.commenter}
               text={comment.text}
+              date={comment.date}
             />
           ))}
         </div>
