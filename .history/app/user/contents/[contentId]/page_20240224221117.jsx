@@ -15,7 +15,6 @@ import AnalyticsTripleReach from "../../../components/contents/analytics-tripple
 import PublishButton from "../../../components/utilities/publish-button";
 import DeleteButton from "../../../components/utilities/delete-button";
 import PublishContent from "@/app/components/publish-content/publish-content";
-import PostId from "@/app/components/contents/post-id";
 
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
@@ -186,7 +185,9 @@ export default function profilePage({params}) {
             />} */}
             <ContentSectionHeader header="Analytics" />
             <div className="grid grid-cols-4 gap-4 p-8">
-              {content&&content.postIds&&content.postIds.map((post,index)=><PostId key={index}>{post}</PostId>)}
+              <div className="card bg-base-200 rounded-xl">
+                
+              </div>
             </div>
 
           </div>

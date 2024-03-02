@@ -21,9 +21,9 @@ export default function acordion() {
         />
         <div className="collapse-title text-xl font-medium">Your Profiles</div>
         <div className="collapse-content flex flex-col items-center">
-          <div className="grid grid-cols-3 gap-4">
+          <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
             <ProfileCardContainer />
-          </div>
+          </ul>
           <button
             onClick={() => (window.location.href = "/user/profiles")}
             className="btn btn-neutral"

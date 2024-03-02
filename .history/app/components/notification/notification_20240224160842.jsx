@@ -30,7 +30,7 @@ export default function notification() {
         notifications.slice(0,5).map((notification, index) => {
           return (
             <div className='flex'>
-              <div key={index} className="notification bg-base-200 shadow-xl p-4 overflow-auto w-[50vw]">
+              <div key={index} className="notification bg-base-200 shadow-xl p-4">
                 {JSON.stringify(notification)}
               </div>
               <button onClick={()=>{setNotifications(notifications=>notifications.splice(index,1))}} className='btn btn-error'> Remove</button>
