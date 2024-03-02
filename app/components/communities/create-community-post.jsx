@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
-function CreateCommunityPost() {
+function CreateCommunityPost({communityId}) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -12,12 +13,52 @@ function CreateCommunityPost() {
     setContent(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Add your logic to handle the submission of the community post
     // For demonstration purposes, we're logging the title and content to the console
-    console.log("Title:", title);
-    console.log("Content:", content);
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/post/create/${communityId}`;
+
+    const token = localStorage.getItem('token');
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    // Data to be sent in the request body
+    const data = {
+      "title": title,
+      "content": content,
+    };
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data),
+        
+      };
+    //   console.log(requestOptions.body);
+
+    try {
+      const response = await fetch(url, requestOptions);
+
+      if (!response.ok) {
+        throw new Error("Failed to create post");
+      }
+
+      // Handle success
+      console.log("post created successfully");
+      alert("post created successfully");
+      //redirect to the community page of communityId
+      window.location.href = `/communities/${communityId}`;
+
+      
+      // window.location.href = "/user/communities/}";
+      // You can redirect the user to another page or perform any other action upon successful creation
+    } catch (error) {
+      console.error("Error creating post:", error);
+      alert("Error creating Post");
+      // Handle error
+    }
     // You can send a request to your backend API to create the post here
     
   };
