@@ -5,6 +5,35 @@ import React, { useState } from "react";
 const CreateCommunityPage = () => {
   const [name, setName] = useState("");
   const [tagline, setTagline] = useState("");
+  const [communityImage, setCommunityImage] = useState(null);
+
+  const uploadMedia = async (file)=>{
+    const url = `${process.env.NEXT_PUBLIC_BACK_END}/file`;
+    const token = localStorage.getItem('token');
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    const formData = new FormData();
+    formData.append('file', file);
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: formData,
+      redirect: 'follow'
+    };
+    const fetchData = async () => {
+      const promise = await fetch(url, requestOptions);
+      if (promise.status == 200) {
+        const response = await promise.json();
+        console.log(response);
+        return `${process.env.NEXT_PUBLIC_BACK_END}/${response.name}`;
+      }
+      else {
+        alert(promise.statusText);
+      }
+      return '';
+    }
+    return fetchData();
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -13,23 +42,26 @@ const CreateCommunityPage = () => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/`;
     console.log(url);
 
-    const token = localStorage.getItem('token');
+    const media=communityImage?[await uploadMedia(communityImage)]:[''];
+    console.log(media);
+
+    const token = localStorage.getItem("token");
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
     myHeaders.append("Content-Type", "application/json");
 
     // Data to be sent in the request body
     const data = {
-      "name": name,
-      "tagline": tagline,
+      name: name,
+      tagline: tagline,
+      image: media,
     };
 
     const requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: JSON.stringify(data),
-        
-      };
+      method: "POST",
+      headers: myHeaders,
+      body: JSON.stringify(data),
+    };
     //   console.log(requestOptions.body);
 
     try {
@@ -82,6 +114,22 @@ const CreateCommunityPage = () => {
                 required
               ></textarea>
             </label>
+            {communityImage ? (
+              <img
+                src={URL.createObjectURL(communityImage)}
+                alt="Community Image"
+                className="rounded-lg"
+              />
+            ) : null}
+            <input
+              onChange={(e) => {
+                setCommunityImage( e.target.files[0] );
+              }}
+              name="media"
+              type="file"
+              className="file-input file-input-bordered w-full "
+            />
+           
             <button type="submit" className="btn btn-primary mt-4">
               Create Community
             </button>
