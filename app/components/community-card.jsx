@@ -69,7 +69,17 @@ const CommunityCard = ({ title, image, description, params, uid }) => {
   return (
     <div className="card card-compact w-64 bg-base-100 shadow-xl border h-80 mb-2 ms-2">
       <figure className="w-full max-w-full h-36">
-        <img src={image} alt="image" />
+        {/* <img src={image} alt="image" /> */}
+        <img
+          src={
+            params &&
+            params.image &&
+            Array.isArray(params.image) &&
+            params.image.length > 0
+              ? params.image[0]
+              : image
+          }
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
@@ -92,7 +102,9 @@ const CommunityCard = ({ title, image, description, params, uid }) => {
           <div className="card-actions justify-center">
             <button
               className="btn btn-primary italic w-20"
-              onClick={() => (window.location.href = `/communities/${params._id}`)}
+              onClick={() =>
+                (window.location.href = `/communities/${params._id}`)
+              }
             >
               Visit
             </button>

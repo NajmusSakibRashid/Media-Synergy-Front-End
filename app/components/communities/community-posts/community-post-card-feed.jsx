@@ -173,14 +173,14 @@ const CommunityPostCardFeed = ({ post }) => {
               onChange={handleCommentChange}
             ></textarea>
             <button
-              className="btn btn-primary w-1/6 align-top m-2 h-12"
+              className="btn btn-primary w-1/5 align-top m-2 h-12"
               onClick={handleCommentSubmit}
             >
               Comment
             </button>
-            <button className="btn btn-primary w-1/6 align-top m-2 h-12">
+            {/* <button className="btn btn-primary w-1/6 align-top m-2 h-12">
               View Details
-            </button>
+            </button> */}
           </div>
 
           <div className="card-actions justify-end"></div>
