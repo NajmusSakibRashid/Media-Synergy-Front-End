@@ -271,7 +271,7 @@ const CommunityPage = ({ params }) => {
                 community &&
                 community.image &&
                 Array.isArray(community.image) &&
-                community.image.length > 0
+                community.image.length > 0 && community.image[0]!=""
                   ? community.image[0]
                   : imageUrl
               }

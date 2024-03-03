@@ -7,6 +7,7 @@ import DashBoardStats from "@/app/components/dashboard-stats";
 import Acordion from "@/app/components/acordion";
 import React, { useState, useEffect } from "react";
 import LoadingIcon from "../components/utilities/loading-icon";
+import CommunitieSuggestions from "../components/communities/community-suggestions";
 
 export default function UserPage() {
   const [profiles, setProfiles] = useState([]);
@@ -64,6 +65,7 @@ export default function UserPage() {
         <DashBoardStats />
         <DashBoardStats /> */}
         {/* <LoadingIcon /> */}
+        <CommunitieSuggestions className="" />
       </div>
     </div>
   );
