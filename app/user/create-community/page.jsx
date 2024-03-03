@@ -7,18 +7,18 @@ const CreateCommunityPage = () => {
   const [tagline, setTagline] = useState("");
   const [communityImage, setCommunityImage] = useState(null);
 
-  const uploadMedia = async (file)=>{
+  const uploadMedia = async (file) => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/file`;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: myHeaders,
       body: formData,
-      redirect: 'follow'
+      redirect: "follow",
     };
     const fetchData = async () => {
       const promise = await fetch(url, requestOptions);
@@ -26,14 +26,13 @@ const CreateCommunityPage = () => {
         const response = await promise.json();
         console.log(response);
         return `${process.env.NEXT_PUBLIC_BACK_END}/${response.name}`;
-      }
-      else {
+      } else {
         alert(promise.statusText);
       }
-      return '';
-    }
+      return "";
+    };
     return fetchData();
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +41,7 @@ const CreateCommunityPage = () => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/communities/`;
     console.log(url);
 
-    const media=communityImage?[await uploadMedia(communityImage)]:[''];
+    const media = communityImage ? [await uploadMedia(communityImage)] : [""];
     console.log(media);
 
     const token = localStorage.getItem("token");
@@ -123,18 +122,26 @@ const CreateCommunityPage = () => {
             ) : null}
             <input
               onChange={(e) => {
-                setCommunityImage( e.target.files[0] );
+                setCommunityImage(e.target.files[0]);
               }}
               name="media"
               type="file"
               className="file-input file-input-bordered w-full "
             />
-           
+
             <button type="submit" className="btn btn-primary mt-4">
               Create Community
             </button>
           </form>
         </div>
+      </div>
+
+      <div className="fixed bottom-0 right-0 top-0 hidden w-2/5 p-5 md:mt-20 md:flex overflow-auto scroll-smooth">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/8987/8987759.png"
+          alt=""
+          className="w-56 h-56 p-5 ml-10 mt-10"
+        />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export default function drawer({ children }) {
         <Navbar
           dropdownContent={[
             { title: "Settings", link: "/user" },
-            { title: "Logout", link: "/user" },
+            { title: "Logout", link: "/" },
           ]}
         />
         <div className="mt-16 p-4">{children}</div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import Link from 'next/link'
-import Notification from '@/app/components/notification/notification'
+import Notification from "@/app/components/notification/notification";
 
 export default function navbar({ dropdownContent }) {
   return (
@@ -34,7 +34,7 @@ export default function navbar({ dropdownContent }) {
             width="20"
             height="20"
             viewBox="0 0 24 24"
-            fill="none"
+            // fill="none"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
@@ -84,7 +84,7 @@ export default function navbar({ dropdownContent }) {
           {/* <!-- <div tabindex="0" role="button" className="btn m-1">Click</div> --> */}
           <ul
             tabIndex="0"
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52"
           >
             {dropdownContent?.map((item,index) => {
               return (
@@ -93,14 +93,14 @@ export default function navbar({ dropdownContent }) {
                 </li>
               );
             })}
-            </ul>
-          <ul tabIndex="0" className="top-12 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          </ul>
+          {/* <ul tabIndex="0" className="top-12 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             {
               dropdownContent?.map((item,index) => {
                 return <li key={index}><Link href={item.link}>{item.title}</Link></li>
               })
             }
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

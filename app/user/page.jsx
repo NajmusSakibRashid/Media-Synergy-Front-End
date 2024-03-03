@@ -6,18 +6,19 @@ import CardButton from "@/app/components/card-button";
 import DashBoardStats from "@/app/components/dashboard-stats";
 import Acordion from "@/app/components/acordion";
 import React, { useState, useEffect } from "react";
+import LoadingIcon from "../components/utilities/loading-icon";
 
 export default function UserPage() {
   const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user/fetch-profile`;
-    
-    const token = localStorage.getItem('token');
+
+    const token = localStorage.getItem("token");
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
     const requestOptions = {
-      method: 'GET',
+      method: "GET",
       headers: myHeaders,
     };
     const fetchData = async () => {
@@ -25,15 +26,12 @@ export default function UserPage() {
       if (promise.status == 200) {
         const response = await promise.json();
         setProfiles(response);
-      }
-      else {
+      } else {
         alert(promise.statusText);
       }
     };
     fetchData();
-  }, [])
-
-  
+  }, []);
 
   return (
     <div className="flex flex-row">
@@ -62,12 +60,11 @@ export default function UserPage() {
         <Acordion />
       </div>
       <div className="basis-2/12 p-4 flex-grow-0 flex-shrink-0">
-        <UpComingContents />
+        {/* <UpComingContents />
         <DashBoardStats />
-        <DashBoardStats />
+        <DashBoardStats /> */}
+        {/* <LoadingIcon /> */}
       </div>
     </div>
   );
 }
-
-
