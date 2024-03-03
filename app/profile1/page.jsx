@@ -9,7 +9,7 @@ import ProfileDetails from "../components/profile-details";
 import ProfilePageStats from "../components/profile-page-stat";
 import ProfilePageStatView from "../components/profile-pagestat-view";
 
-export default function profilePage() {
+export default function ProfilePage() {
   return (
     <div className="flex flex-row">
       <div className="basis-4/12 p-4 flex-grow-0 flex-shrink-0 flex flex-col gap-4">
