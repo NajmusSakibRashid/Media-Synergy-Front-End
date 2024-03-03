@@ -8,6 +8,7 @@ import Feed from "@/app/components/communities/community-posts/community-feed";
 import CommunityFilterSearch from "@/app/components/communities/community-filter-search";
 import { useRef } from "react";
 import ConfirmationPopup from "@/app/components/confirmation-popup";
+import LoadingIcon from "@/app/components/utilities/loading-icon";
 
 const CommunityPage = ({ params }) => {
   const [userId, setUserId] = useState(null);
@@ -29,6 +30,7 @@ const CommunityPage = ({ params }) => {
   };
 
   useEffect(() => {
+    setLoading(true);
     const fetchUserId = async () => {
       try {
         const uidUrl = `${process.env.NEXT_PUBLIC_BACK_END}/user/getUserId`;
@@ -46,6 +48,7 @@ const CommunityPage = ({ params }) => {
         }
         const data = await response.json();
         setUserId(data.userId);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching user ID:", error);
       } finally {
@@ -78,6 +81,7 @@ const CommunityPage = ({ params }) => {
           if (!allPostsResponse.ok) {
             throw new Error("Failed to fetch all posts");
           }
+          setLoading(false);
           const allPostsData = await allPostsResponse.json();
           setAllPosts(allPostsData);
 
@@ -244,6 +248,7 @@ const CommunityPage = ({ params }) => {
       <div className="fixed bottom-0 left-0 top-0 hidden w-1/5 p-5 md:mt-20 lg:flex">
         <CommunityFilterSearch />
       </div>
+
       <div className="min-h-screen w-full p-5 pb-2 pt-0 md:w-4/5 md:p-5 lg:mx-auto lg:w-3/5 bg-base-300 rounded-lg">
         {}
         {/* {params.communityId} */}
