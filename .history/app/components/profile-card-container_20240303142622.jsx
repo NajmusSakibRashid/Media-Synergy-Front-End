@@ -37,10 +37,16 @@ export default function ProfileCardContainer() {
   }, []);
 
   return (
-    profiles?.map((profile) => (
-      <div key={profile._id}>
-        <ProfileCards>{profile}</ProfileCards>
-      </div>
-    ))
+    <div className="justify-center p-4 grid grid-cols-3 gap-4">
+      {isLoading ? ( // Render loading icon if isLoading is true
+        <LoadingIcon />
+      ) : (
+        profiles?.map((profile) => (
+          <div key={profile._id}>
+            <ProfileCards>{profile}</ProfileCards>
+          </div>
+        ))
+      )}
+    </div>
   );
 }

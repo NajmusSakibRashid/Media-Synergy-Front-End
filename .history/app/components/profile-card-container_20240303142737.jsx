@@ -37,10 +37,12 @@ export default function ProfileCardContainer() {
   }, []);
 
   return (
-    profiles?.map((profile) => (
-      <div key={profile._id}>
-        <ProfileCards>{profile}</ProfileCards>
-      </div>
-    ))
+      
+        profiles?.map((profile) => (
+          <div key={profile._id}>
+            <ProfileCards>{profile}</ProfileCards>
+          </div>
+        ))
+    </div>
   );
 }
