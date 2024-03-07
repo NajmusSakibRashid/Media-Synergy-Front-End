@@ -9,7 +9,7 @@ const CommunityCard = ({ title, image, description, params }) => {
 
   return (
     <div>
-      <div className="card card-compact w-full bg-base-100 shadow-xl border h-auto mb-2 ms-2">
+      <div className="card card-compact w-64 bg-base-100 shadow-xl border h-auto mb-2 ms-2">
         <figure className="w-full max-w-full h-auto min-h-36">
           {/* <img src={image} alt="image" className="" /> */}
           <img
