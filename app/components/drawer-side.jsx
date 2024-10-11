@@ -9,8 +9,8 @@ export default function drawerSide({ children }) {
         {/* <!-- Sidebar content here --> */}
         {/* <li><a href="/src/index.html">Dashboard</a></li> */}
         {
-          children?.map(item => {
-            return <li><Link href={item.link}>{item.title}</Link></li>
+          children?.map((item,index) => {
+            return <li key={index}><Link href={item.link}>{item.title}</Link></li>
           })
         }
       </ul>

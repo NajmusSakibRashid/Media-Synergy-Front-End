@@ -2,7 +2,7 @@
 
 import {useState} from 'react'
 
-export default function login() {
+export default function Login() {
   const [data, setData] = useState({});
   const inputHandler = (e) => {
     setData({...data, [e.target.name]: e.target.value})
@@ -20,6 +20,8 @@ export default function login() {
     if(promise.status==200){
       const response=await promise.json();
       localStorage.setItem('token', response.token);
+      alert('login successful');
+      window.location.href='/user';
     }
     else{
       alert(promise.statusText);

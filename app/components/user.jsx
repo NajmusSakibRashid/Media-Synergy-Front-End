@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-export default function user() {
+export default function User() {
   const [userInfo, setUser] = useState({});
   useEffect(() => {
     const url = `${process.env.NEXT_PUBLIC_BACK_END}/user`;
@@ -31,7 +31,7 @@ export default function user() {
   }, [])
   return (
     <div className="card w-full bg-base-200 shadow-xl p-4">
-      <img src='https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg' className='rounded-full' />
+      <img src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png' className='rounded-full' />
       <div className="p-4">
         <h2 className="card-title break-all">{userInfo?.user?.name}</h2>
         <div className='break-all'>{userInfo?.user?.email}</div>

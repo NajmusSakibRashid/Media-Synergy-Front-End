@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function upcomingContents() {
+export default function UpcomingContents() {
   return (
     <div className="card shadow-xl w-full">
       <div className="card-title p-4">Upcoming Contents</div>
