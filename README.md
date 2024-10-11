@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## MediaSynergy Pages
+![image](https://github.com/user-attachments/assets/cf2fe029-f114-4a3c-bb04-6a55c55ce4da)
+
+![image](https://github.com/user-attachments/assets/cd55d37d-38fa-4758-97df-12869cf0b839)
+
+![image](https://github.com/user-attachments/assets/6b3483ab-c63b-4a9f-8228-09a1ec8dc29a)
+
+![image](https://github.com/user-attachments/assets/3cf12eef-de3f-49e2-8396-f22a5615083a)
+
+![image](https://github.com/user-attachments/assets/043e10dd-ff6e-40e7-bf30-1a367e34f27e)
+
+![image](https://github.com/user-attachments/assets/ef7f1b21-5920-4c1f-ac9d-92e58718a7d7)
+
+![image](https://github.com/user-attachments/assets/dac7d932-462b-4504-a61f-79ed190bdeef)
+
+![image](https://github.com/user-attachments/assets/b51f3704-432b-4f16-8f99-f769541ed7c7)
+
+![image](https://github.com/user-attachments/assets/37a9b024-d321-4976-90b9-8b66e34ea386)
+
+![image](https://github.com/user-attachments/assets/dd3b8574-c146-4fee-8f96-0ec099e1148d)
+
+![image](https://github.com/user-attachments/assets/da2c64d4-18b6-4c32-9c5d-3fbdd86a78ab)
+
