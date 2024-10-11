@@ -35,6 +35,32 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Tech Stack
+
+<table style="font-family: 'Cascadia Code', monospace;">
+  <tr>
+    <th>Component</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><strong>Front End</strong></td>
+    <td>React JS with Tailwind CSS</td>
+  </tr>
+  <tr>
+    <td><strong>Back End</strong></td>
+    <td>Node JS, Multer JS</td>
+  </tr>
+  <tr>
+    <td><strong>Database</strong></td>
+    <td>MongoDB</td>
+  </tr>
+  <tr>
+    <td><strong>Security</strong></td>
+    <td>Jsonwebtoken</td>
+  </tr>
+</table>
+
+
 ## MediaSynergy Pages
 ![image](https://github.com/user-attachments/assets/cf2fe029-f114-4a3c-bb04-6a55c55ce4da)
 
